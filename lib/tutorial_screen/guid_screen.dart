@@ -1,0 +1,198 @@
+import 'package:flutter/material.dart';
+import 'package:moon_launch/auth_screens/login_screen.dart';
+import 'package:moon_launch/widgets/app_background.dart';
+
+class GuidScreen extends StatefulWidget {
+  const GuidScreen({super.key});
+
+  @override
+  State<GuidScreen> createState() => _GuidScreenState();
+}
+
+class _GuidScreenState extends State<GuidScreen> {
+  final PageController _pageController = PageController();
+  int _currentIndex = 0;
+
+  final List<Map<String, String>> _pages = [
+    {
+      "image": "assets/images/moon_launch_roc.png",
+      "title": "Launch Your Own Meme Coin",
+      "description": "Create, trade, and grow your crypto idea in minutes, powered by BNB"
+    },
+    {
+      "image": "assets/images/hand_coin.png",
+      "title": "Create a Coin in Minutes",
+      "description": "Name your meme coin, set supply, and deploy instantly on Binance Smart Chain"
+    },
+    {
+      "image": "assets/images/coin_image.png",
+      "title": "Trade Your Coin Freely",
+      "description": "Buy and sell your coin using BNB with real-time charts and instant swaps"
+    },
+    {
+      "image": "assets/images/coins_image.png",
+      "title": "Turn Hype Into Earnings",
+      "description": "Withdraw your profits anytime directly through BNB with full control"
+    },
+  ];
+
+  @override
+  Widget build(BuildContext context) {
+    late final mqHeight = MediaQuery.of(context).size.height;
+    late final mqWidth = MediaQuery.of(context).size.width;
+
+    return Scaffold(
+      backgroundColor: Colors.black,
+      body: AppBackground(
+        child: Column(
+          children: [
+            SizedBox(height: mqHeight * 0.11,),
+
+            Image.asset(
+              'assets/images/moon_launch_logo.png',
+              width: mqWidth * 0.5,
+            ),
+
+            Expanded(
+              child: PageView.builder(
+                controller: _pageController,
+                itemCount: _pages.length,
+                onPageChanged: (index) {
+                  setState(() => _currentIndex = index);
+                },
+                itemBuilder: (context, index) {
+                  return Column(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    crossAxisAlignment: CrossAxisAlignment.center,
+                    children: [
+                      SizedBox(
+                        height: mqHeight * 0.45,
+                        child: Image.asset(
+                          _pages[index]['image']!,
+                          width: double.infinity,
+                          fit: BoxFit.cover,
+                        ),
+                      ),
+                      SizedBox(height: mqHeight * 0.02),
+
+                      Row(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: List.generate(
+                          _pages.length,
+                              (index) => _buildDot(index),
+                        ),
+                      ),
+                      SizedBox(height: mqHeight * 0.02),
+
+                      Padding(
+                        padding: EdgeInsets.symmetric(horizontal: mqWidth * 0.2),
+                        child: Text(
+                          _pages[index]['title']!,
+                          textAlign: TextAlign.center,
+                          style: TextStyle(
+                            letterSpacing: -0.3,
+                            fontSize: 30,
+                            fontFamily: 'BernardMTCondensed',
+                            fontWeight: FontWeight.w400,
+                            color: Colors.white,
+                          ),
+                        ),
+                      ),
+                      SizedBox(height: mqHeight * 0.01),
+
+                      Padding(
+                        padding: EdgeInsets.symmetric(horizontal: mqWidth * 0.15),
+                        child: Text(
+                          _pages[index]['description']!,
+                          textAlign: TextAlign.center,
+                          style: TextStyle(
+                            letterSpacing: -0.3,
+                            fontSize: 16,
+                            fontFamily: 'Benne',
+                            fontWeight: FontWeight.w400,
+                            color: Colors.grey.shade400,
+                          ),
+                        ),
+                      ),
+                    ],
+                  );
+                },
+              ),
+            ),
+
+            Padding(
+              padding: EdgeInsets.symmetric(horizontal: mqWidth * 0.05),
+              child: InkWell(
+                onTap: () {
+                  if (_currentIndex == _pages.length - 1) {
+                    Navigator.pushReplacement(
+                      context,
+                      MaterialPageRoute(builder: (_) => LoginScreen()),
+                    );
+                  } else {
+                    _pageController.nextPage(
+                      duration: const Duration(milliseconds: 300),
+                      curve: Curves.easeInOut,
+                    );
+                  }
+                },
+                child: Container(
+                  height: mqHeight * 0.06,
+                  width: double.infinity,
+                  decoration: BoxDecoration(
+                    gradient: LinearGradient(
+                      colors: [
+                        Color(0xFFFFE600),
+                        Color(0xFFDB2519),
+                      ],
+                      begin: Alignment.centerLeft,
+                      end: Alignment.centerRight,
+                    ),
+                    borderRadius: BorderRadius.circular(40),
+                  ),
+                  child: Center(
+                    child: Text(
+                      _currentIndex == _pages.length - 1 ? 'Continue' : 'Skip',
+                      style: TextStyle(
+                        letterSpacing: -0.3,
+                        fontFamily: 'BernardMTCondensed',
+                        fontWeight: FontWeight.w400,
+                        color: Colors.white,
+                        fontSize: 16,
+                      ),
+                    ),
+                  ),
+                ),
+              ),
+            ),
+            SizedBox(height: mqHeight * 0.07,)
+
+          ],
+        ),
+      ),
+    );
+  }
+
+  Widget _buildDot(int index) {
+    final bool isActive = _currentIndex == index;
+
+    return AnimatedContainer(
+      duration: const Duration(milliseconds: 300),
+      margin: const EdgeInsets.symmetric(horizontal: 5),
+      height: 8,
+      width: isActive ? 22 : 8,
+      decoration: BoxDecoration(
+        gradient: isActive
+            ? const LinearGradient(
+          colors: [
+            Color(0xFFFFE600),
+            Color(0xFFDB2519),
+          ],
+        )
+            : null,
+        color: isActive ? null : Colors.grey.shade600,
+        borderRadius: BorderRadius.circular(10),
+      ),
+    );
+  }
+}
