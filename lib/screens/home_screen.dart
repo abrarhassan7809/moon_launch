@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-
 import '../widgets/custom_bottom_navbar.dart';
 
 class HomeScreen extends StatefulWidget {
@@ -10,22 +9,14 @@ class HomeScreen extends StatefulWidget {
 }
 
 class _HomeScreenState extends State<HomeScreen> {
-  int _currentIndex = 0;
-
-  void _onNavTap(int index) {
-    setState(() {
-      _currentIndex = index;
-    });
-
-    // TODO: handle navigation
-  }
 
   @override
   Widget build(BuildContext context) {
-    late final mqHeight = MediaQuery.of(context).size.height;
-    late final mqWidth = MediaQuery.of(context).size.width;
+    final mqHeight = MediaQuery.of(context).size.height;
+    final mqWidth = MediaQuery.of(context).size.width;
 
     return Scaffold(
+      extendBody: true,
       appBar: AppBar(
         automaticallyImplyLeading: false,
         title: Image.asset(
@@ -42,9 +33,9 @@ class _HomeScreenState extends State<HomeScreen> {
 
       ),
 
-      body: Center(
-        child: Padding(
-          padding: EdgeInsets.symmetric(vertical: mqHeight * 0.03),
+      body: Padding(
+        padding: EdgeInsets.only(top: mqHeight * 0.03, bottom: mqHeight * 0.11),
+        child: Center(
           child: Column(
             children: [
               Text(
@@ -375,10 +366,7 @@ class _HomeScreenState extends State<HomeScreen> {
         ),
       ),
 
-      bottomNavigationBar: CustomBottomNavBar(
-        currentIndex: _currentIndex,
-        onTap: _onNavTap,
-      ),
+      bottomNavigationBar: CustomBottomNavBar(),
     );
   }
 }
