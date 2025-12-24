@@ -85,13 +85,17 @@ class _RegisterScreenState extends State<RegisterScreen> {
                           padding: EdgeInsets.symmetric(horizontal: mqWidth * 0.07),
                           child: TextField(
                             decoration: InputDecoration(
-                                hint: Text(
-                                  "Username",
-                                  style: TextStyle(fontFamily: 'Benne', fontSize: 14),
-                                ),
-                                border: OutlineInputBorder(
-                                  borderRadius: BorderRadius.circular(mqWidth * 0.5),
-                                )
+                              hint: Text(
+                                "Username",
+                                style: TextStyle(fontFamily: 'Benne', fontSize: 14),
+                              ),
+                              border: OutlineInputBorder(
+                                borderRadius: BorderRadius.circular(mqWidth * 0.5),
+                              ),
+                              focusedBorder: OutlineInputBorder(
+                                borderRadius: BorderRadius.circular(mqWidth * 0.5),
+                                borderSide: const BorderSide(color: Color(0xFFDB2519)),
+                              ),
                             ),
                           ),
                         ),
@@ -101,13 +105,17 @@ class _RegisterScreenState extends State<RegisterScreen> {
                           padding: EdgeInsets.symmetric(horizontal: mqWidth * 0.07),
                           child: TextField(
                             decoration: InputDecoration(
-                                hint: Text(
-                                  "Email Address",
-                                  style: TextStyle(fontFamily: 'Benne', fontSize: 14),
-                                ),
-                                border: OutlineInputBorder(
-                                  borderRadius: BorderRadius.circular(mqWidth * 0.5),
-                                )
+                              hint: Text(
+                                "Email Address",
+                                style: TextStyle(fontFamily: 'Benne', fontSize: 14),
+                              ),
+                              border: OutlineInputBorder(
+                                borderRadius: BorderRadius.circular(mqWidth * 0.5),
+                              ),
+                              focusedBorder: OutlineInputBorder(
+                                borderRadius: BorderRadius.circular(mqWidth * 0.5),
+                                borderSide: const BorderSide(color: Color(0xFFDB2519)),
+                              ),
                             ),
                           ),
                         ),
@@ -124,6 +132,10 @@ class _RegisterScreenState extends State<RegisterScreen> {
                               ),
                               border: OutlineInputBorder(
                                 borderRadius: BorderRadius.circular(mqWidth * 0.5),
+                              ),
+                              focusedBorder: OutlineInputBorder(
+                                borderRadius: BorderRadius.circular(mqWidth * 0.5),
+                                borderSide: const BorderSide(color: Color(0xFFDB2519)),
                               ),
                               suffixIcon: IconButton(
                                 icon: Icon(
@@ -152,6 +164,10 @@ class _RegisterScreenState extends State<RegisterScreen> {
                               ),
                               border: OutlineInputBorder(
                                 borderRadius: BorderRadius.circular(mqWidth * 0.5),
+                              ),
+                              focusedBorder: OutlineInputBorder(
+                                borderRadius: BorderRadius.circular(mqWidth * 0.5),
+                                borderSide: const BorderSide(color: Color(0xFFDB2519)),
                               ),
                               suffixIcon: IconButton(
                                 icon: Icon(

@@ -19,7 +19,7 @@ class CustomBottomNavBar extends StatelessWidget {
           ),
 
           Center(
-            heightFactor: 0.6,
+            heightFactor: 0.2,
             child: Container(
               height: 70,
               width: 70,
@@ -30,6 +30,13 @@ class CustomBottomNavBar extends StatelessWidget {
                     Color(0xFFDB2519),
                   ],
                 ),
+                boxShadow: [
+                  BoxShadow(
+                    color: Color(0xFFFFE600).withOpacity(0.4),
+                    blurRadius: 12,
+                    spreadRadius: 5,
+                  ),
+                ],
                 borderRadius: BorderRadius.circular(50)
               ),
               child: Icon(Icons.add, size: 22,),
@@ -78,6 +85,7 @@ class BNBCustomPainter extends CustomPainter{
     ).createShader(Rect.fromLTWH(0, 0, size.width, size.height))..style = PaintingStyle.fill;
     Path path = Path()..moveTo(0, 20);
 
+    // left arc code
     path.quadraticBezierTo(size.width*0.20, 0, size.width*0.35, 0);
     path.quadraticBezierTo(size.width*0.40, 0, size.width*0.40, 20);
 
@@ -87,6 +95,7 @@ class BNBCustomPainter extends CustomPainter{
       clockwise: false,
     );
 
+    // right arc code
     path.quadraticBezierTo(size.width*0.60, 0, size.width*0.65, 0);
     path.quadraticBezierTo(size.width*0.80, 0, size.width, 20);
 

@@ -82,6 +82,7 @@ class _HomeScreenState extends State<HomeScreen> {
               ),
               SizedBox(height: mqHeight * 0.03,),
 
+              // deposit buttons
               Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
@@ -93,6 +94,7 @@ class _HomeScreenState extends State<HomeScreen> {
                           Color(0xFFDB2519)
                         ],
                       ),
+                      border: Border.all(width: 1),
                       borderRadius: BorderRadius.circular(30),
                     ),
                     child: FilledButton(
@@ -173,6 +175,7 @@ class _HomeScreenState extends State<HomeScreen> {
               ),
               SizedBox(height: mqHeight * 0.03,),
 
+              // earning buttons
               Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
@@ -240,6 +243,7 @@ class _HomeScreenState extends State<HomeScreen> {
               ),
               SizedBox(height: mqHeight * 0.03,),
 
+              // top coins list
               Padding(
                 padding: EdgeInsets.symmetric(horizontal: 25),
                 child: Row(
