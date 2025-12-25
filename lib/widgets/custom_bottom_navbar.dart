@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:moon_launch/views/activity_screen.dart';
+import 'notifiers.dart';
 
 class CustomBottomNavBar extends StatelessWidget {
   const CustomBottomNavBar({super.key});
@@ -6,98 +8,151 @@ class CustomBottomNavBar extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final mqWidth = MediaQuery.of(context).size.width;
-    final mqHeight = MediaQuery.of(context).size.height;
 
     return SizedBox(
       width: mqWidth,
-      height: 80,
+      height: 90, // increased height to move icons down
       child: Stack(
+        clipBehavior: Clip.none,
         children: [
+          // Custom Painted Background
           CustomPaint(
             size: Size(mqWidth, 80),
             painter: BNBCustomPainter(),
           ),
 
-          Center(
-            heightFactor: 0.2,
-            child: Container(
-              height: 70,
-              width: 70,
-              decoration: BoxDecoration(
-                gradient: LinearGradient(
-                  colors: [
-                    Color(0xFFFFE600),
-                    Color(0xFFDB2519),
-                  ],
-                ),
-                boxShadow: [
-                  BoxShadow(
-                    color: Color(0xFFFFE600).withOpacity(0.4),
-                    blurRadius: 12,
-                    spreadRadius: 5,
+          // Center Button
+          Positioned(
+            top: -20,
+            left: mqWidth / 2 - 35,
+            child: InkWell(
+              onTap: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (_) => ActivityScreen()),
+                );
+              },
+              child: Container(
+                height: 70,
+                width: 70,
+                decoration: BoxDecoration(
+                  gradient: const LinearGradient(
+                    colors: [Color(0xFFFFE600), Color(0xFFDB2519)],
                   ),
-                ],
-                borderRadius: BorderRadius.circular(50)
+                  boxShadow: [
+                    BoxShadow(
+                      color: Color(0xFFFFE600).withOpacity(0.4),
+                      blurRadius: 12,
+                      spreadRadius: 5,
+                    ),
+                  ],
+                  borderRadius: BorderRadius.circular(50),
+                ),
+                child: const Icon(Icons.add, size: 28, color: Colors.white),
               ),
-              child: Icon(Icons.add, size: 22,),
             ),
           ),
 
-          Row(
-            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-            children: [
-              IconButton(
-                onPressed: () {},
-                icon: Icon(Icons.home_outlined, size: 22,),
-              ),
-              IconButton(
-                onPressed: () {},
-                icon: Icon(Icons.wallet, size: 22,),
-              ),
-              Container(width: mqWidth*0.20,),
-
-              IconButton(
-                onPressed: () {},
-                icon: Icon(Icons.bookmark, size: 22,),
-              ),
-              IconButton(
-                onPressed: () {},
-                icon: Icon(Icons.person, size: 22,),
-              ),
-            ],
-          )
+          // Bottom Icons
+          ValueListenableBuilder<int>(
+            valueListenable: selectedPageNotifier,
+            builder: (context, selectedIndex, _) {
+              return Positioned(
+                bottom: 20,
+                left: 0,
+                right: 0,
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                  children: [
+                    _navIcon(
+                      index: 0,
+                      selectedIndex: selectedIndex,
+                      iconPath: 'assets/images/home_icon.png',
+                    ),
+                    _navIcon(
+                      index: 1,
+                      selectedIndex: selectedIndex,
+                      iconPath: 'assets/images/wallet_icon.png',
+                    ),
+                    SizedBox(width: mqWidth * 0.20),
+                    _navIcon(
+                      index: 2,
+                      selectedIndex: selectedIndex,
+                      iconPath: 'assets/images/ticket_icon.png',
+                    ),
+                    _navIcon(
+                      index: 3,
+                      selectedIndex: selectedIndex,
+                      iconPath: 'assets/images/profile_icon.png',
+                    ),
+                  ],
+                ),
+              );
+            },
+          ),
         ],
+      ),
+    );
+  }
+
+  Widget _navIcon({
+    required int index,
+    required int selectedIndex,
+    required String iconPath,
+  }) {
+    final bool isSelected = index == selectedIndex;
+
+    return IconButton(
+      onPressed: () {
+        selectedPageNotifier.value = index;
+      },
+      icon: Image.asset(
+        iconPath,
+        width: 28,
+        height: 28,
+        color: isSelected ? Colors.white : Colors.white54,
       ),
     );
   }
 }
 
-class BNBCustomPainter extends CustomPainter{
+class BNBCustomPainter extends CustomPainter {
   @override
   void paint(Canvas canvas, Size size) {
-    Paint paint = Paint()..shader = LinearGradient(
+    Paint paint = Paint()
+      ..shader = LinearGradient(
         begin: Alignment.topLeft,
         end: Alignment.bottomRight,
         colors: [
           Color(0xFFFFE600),
           Color(0xFFDB2519),
-        ]
-    ).createShader(Rect.fromLTWH(0, 0, size.width, size.height))..style = PaintingStyle.fill;
-    Path path = Path()..moveTo(0, 20);
+        ],
+      ).createShader(Rect.fromLTWH(0, 0, size.width, size.height))
+      ..style = PaintingStyle.fill;
 
-    // left arc code
-    path.quadraticBezierTo(size.width*0.20, 0, size.width*0.35, 0);
-    path.quadraticBezierTo(size.width*0.40, 0, size.width*0.40, 20);
+    Path path = Path();
+    path.moveTo(0, 20);
 
-    path.arcToPoint(
-      Offset(size.width*0.60, 20),
-      radius: Radius.circular(10.0),
-      clockwise: false,
+    // Left curve
+    path.quadraticBezierTo(size.width * 0.18, 0, size.width * 0.30, 0); // top left
+    path.quadraticBezierTo(size.width * 0.35, 0, size.width * 0.38, 35);
+
+    // Center dip (wide U-shape)
+    path.cubicTo(
+      size.width * 0.38, 35,   // control point 1 (farther left)
+      size.width * 0.42, 70,   // control point 2 (bottom left)
+      size.width * 0.50, 68,   // center bottom point of dip
     );
 
-    // right arc code
-    path.quadraticBezierTo(size.width*0.60, 0, size.width*0.65, 0);
-    path.quadraticBezierTo(size.width*0.80, 0, size.width, 20);
+    path.cubicTo(
+      size.width * 0.58, 70,   // control point 3 (bottom right)
+      size.width * 0.62, 35,   // control point 4 (farther right)
+      size.width * 0.64, 20,   // end of center curve
+    );
+
+    // Right curve
+    path.quadraticBezierTo(size.width * 0.67, 0, size.width * 0.72, 0);
+    path.quadraticBezierTo(size.width * 0.82, 0, size.width, 20);
 
     path.lineTo(size.width, size.height);
     path.lineTo(0, size.height);
@@ -108,8 +163,5 @@ class BNBCustomPainter extends CustomPainter{
   }
 
   @override
-  bool shouldRepaint(covariant CustomPainter oldDelegate) {
-    return false;
-  }
-
+  bool shouldRepaint(covariant CustomPainter oldDelegate) => false;
 }

@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:moon_launch/auth_screens/register_screen.dart';
-import 'package:moon_launch/views/home_screen.dart';
+import 'package:moon_launch/views/verify_identity_screen.dart';
 import 'package:moon_launch/widgets/app_background.dart';
+import 'package:moon_launch/widgets/widget_tree.dart';
 
 class LoginScreen extends StatefulWidget {
   const LoginScreen({super.key});
@@ -188,7 +189,12 @@ class _LoginScreenState extends State<LoginScreen> {
                               ),
 
                               GestureDetector(
-                                onTap: () {},
+                                onTap: () {
+                                  Navigator.push(
+                                    context,
+                                    MaterialPageRoute(builder: (_) => VerifyIdentityScreen()),
+                                  );
+                                },
                                 child: ShaderMask(
                                   shaderCallback: (bounds) {
                                     return const LinearGradient(
@@ -220,7 +226,7 @@ class _LoginScreenState extends State<LoginScreen> {
                             onTap: () {
                               Navigator.pushReplacement(
                                 context,
-                                MaterialPageRoute(builder: (_) => HomeScreen()),
+                                MaterialPageRoute(builder: (_) => WidgetTree()),
                               );
                             },
                             child: Container(

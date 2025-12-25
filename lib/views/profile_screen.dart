@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:moon_launch/widgets/custom_bottom_navbar.dart';
+import 'package:moon_launch/views/edit_profile_screen.dart';
 import 'package:moon_launch/widgets/profile_background.dart';
 
 class ProfileScreen extends StatefulWidget {
@@ -104,7 +104,12 @@ class _ProfileScreenState extends State<ProfileScreen> {
                     SizedBox(height: mqHeight * 0.02,),
 
                     InkWell(
-                      onTap: () {},
+                      onTap: () {
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(builder: (_) => EditProfileScreen()),
+                        );
+                      },
                       child: Container(
                         padding: EdgeInsets.symmetric(horizontal: 15),
                         child: Row(
@@ -246,7 +251,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
                           SizedBox(width: 10,),
 
                           Text(
-                            'Invite',
+                            'Logout',
                             style: TextStyle(
                               letterSpacing: -0.3,
                               fontFamily: 'BernardMTCondensed',
@@ -265,8 +270,6 @@ class _ProfileScreenState extends State<ProfileScreen> {
           ),
         ),
       ),
-
-      bottomNavigationBar: CustomBottomNavBar(),
     );
   }
 }

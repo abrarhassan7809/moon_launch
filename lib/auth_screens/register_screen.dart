@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:moon_launch/views/privacy_policy_screen.dart';
+import 'package:moon_launch/views/term_condition_screen.dart';
 import 'package:moon_launch/widgets/app_background.dart';
 
 class RegisterScreen extends StatefulWidget {
@@ -238,7 +240,12 @@ class _RegisterScreenState extends State<RegisterScreen> {
                               ),
 
                               GestureDetector(
-                                onTap: () {},
+                                onTap: () {
+                                  Navigator.push(
+                                    context,
+                                    MaterialPageRoute(builder: (_) => TermConditionScreen()),
+                                  );
+                                },
                                 child: ShaderMask(
                                   shaderCallback: (bounds) {
                                     return const LinearGradient(
@@ -270,7 +277,12 @@ class _RegisterScreenState extends State<RegisterScreen> {
                               ),
 
                               GestureDetector(
-                                onTap: () {},
+                                onTap: () {
+                                  Navigator.push(
+                                    context,
+                                    MaterialPageRoute(builder: (_) => PrivacyPolicyScreen()),
+                                  );
+                                },
                                 child: ShaderMask(
                                   shaderCallback: (bounds) {
                                     return const LinearGradient(

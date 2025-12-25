@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:moon_launch/views/activity_screen.dart';
 import 'package:moon_launch/views/splash_screen.dart';
 
 void main() {
@@ -17,7 +16,7 @@ class MyApp extends StatelessWidget {
         colorScheme: ColorScheme.dark()
       ),
 
-      home: ActivityScreen(),
+      home: SplashScreen(),
     );
   }
 }

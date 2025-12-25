@@ -20,7 +20,9 @@ class _EditProfileScreenState extends State<EditProfileScreen> {
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
             InkWell(
-              onTap: () {},
+              onTap: () {
+                Navigator.pop(context);
+              },
               child: Container(
                 height: 40,
                 width: 40,

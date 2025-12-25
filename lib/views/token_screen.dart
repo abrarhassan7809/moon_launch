@@ -11,11 +11,14 @@ class TokenScreen extends StatelessWidget {
     final mqWidth = MediaQuery.of(context).size.width;
 
     return Scaffold(
-      resizeToAvoidBottomInset: true,
+      extendBodyBehindAppBar: true,
       extendBody: true,
 
       appBar: AppBar(
         automaticallyImplyLeading: false,
+        backgroundColor: Colors.transparent,
+        surfaceTintColor: Colors.transparent,
+
         title: Row(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
@@ -239,8 +242,6 @@ class TokenScreen extends StatelessWidget {
           ),
         ),
       ),
-
-      bottomNavigationBar: CustomBottomNavBar(),
     );
   }
 }

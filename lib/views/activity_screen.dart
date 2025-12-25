@@ -19,6 +19,7 @@ class _ActivityScreenState extends State<ActivityScreen> {
       extendBodyBehindAppBar: true,
 
       appBar: AppBar(
+        automaticallyImplyLeading: false,
         backgroundColor: Colors.transparent,
         surfaceTintColor: Colors.transparent,
         elevation: 0,
@@ -26,7 +27,7 @@ class _ActivityScreenState extends State<ActivityScreen> {
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
             InkWell(
-              onTap: () {},
+              onTap: () => Navigator.pop(context),
               child: Container(
                 height: 40,
                 width: 40,

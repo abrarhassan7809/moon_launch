@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:moon_launch/widgets/custom_bottom_navbar.dart';
 import 'package:moon_launch/widgets/profile_background.dart';
 
 class RewardScreen extends StatelessWidget {
@@ -89,7 +88,7 @@ class RewardScreen extends StatelessWidget {
                 color: Color(0xFFC9C9C9),
               ),
             ),
-            SizedBox(height: mqHeight * 0.03,),
+            SizedBox(height: mqHeight * 0.02,),
 
             Padding(
               padding: EdgeInsets.symmetric(horizontal: mqWidth * 0.05),
@@ -133,8 +132,6 @@ class RewardScreen extends StatelessWidget {
           ],
         ),
       ),
-
-      bottomNavigationBar: CustomBottomNavBar(),
     );
   }
 }
