@@ -13,8 +13,7 @@ class WalletScreen extends StatefulWidget {
 class _WalletScreenState extends State<WalletScreen> {
   @override
   Widget build(BuildContext context) {
-    final mqHeight = MediaQuery.of(context).size.height;
-    final mqWidth = MediaQuery.of(context).size.width;
+    final Size mqSize = MediaQuery.of(context).size;
 
     return Scaffold(
       extendBodyBehindAppBar: true,
@@ -36,17 +35,20 @@ class _WalletScreenState extends State<WalletScreen> {
                     style: TextStyle(
                       fontFamily: 'Benne',
                       fontWeight: FontWeight.w400,
-                      fontSize: 16,
+                      fontSize: mqSize.width*0.045,
                       color: Color(0xFFC9C9C9),
                     ),
                   ),
-                  SizedBox(width: 10,),
 
-                  Image.asset('assets/images/close_eye_icon.png',),
+                  Image.asset(
+                    'assets/images/close_eye_icon.png',
+                    width: mqSize.width*0.09,),
                 ],
               ),
 
-              Image.asset('assets/images/moon_launch_logo.png', width: 100,
+              Image.asset(
+                'assets/images/moon_launch_logo.png',
+                width: mqSize.width*0.25,
               ),
             ],
           ),
@@ -62,7 +64,7 @@ class _WalletScreenState extends State<WalletScreen> {
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   Padding(
-                    padding: const EdgeInsets.only(left: 15),
+                    padding: EdgeInsets.only(left: mqSize.width*0.04),
                     child: RichText(
                       text: TextSpan(
                         style: TextStyle(
@@ -73,21 +75,18 @@ class _WalletScreenState extends State<WalletScreen> {
                         children: [
                           TextSpan(
                             text: '\$7,765,431',
-                            style: TextStyle(fontSize: 30),
+                            style: TextStyle(fontSize: mqSize.width*0.085),
                           ),
                           WidgetSpan(
                             alignment: PlaceholderAlignment.baseline,
                             baseline: TextBaseline.alphabetic,
-                            child: Padding(
-                              padding: const EdgeInsets.only(left: 4),
-                              child: Text(
-                                'usd',
-                                style: TextStyle(
-                                  fontFamily: 'BernardMTCondensed',
-                                  fontWeight: FontWeight.w400,
-                                  fontSize: 14,
-                                  color: Colors.white,
-                                ),
+                            child: Text(
+                              'usd',
+                              style: TextStyle(
+                                fontFamily: 'BernardMTCondensed',
+                                fontWeight: FontWeight.w400,
+                                fontSize: mqSize.width*0.035,
+                                color: Colors.white,
                               ),
                             ),
                           ),
@@ -96,7 +95,7 @@ class _WalletScreenState extends State<WalletScreen> {
                     ),
                   ),
                   Padding(
-                    padding: const EdgeInsets.only(left: 10),
+                    padding: EdgeInsets.only(left: mqSize.width*0.03),
                     child: Row(
                       mainAxisAlignment: MainAxisAlignment.start,
                       children: [
@@ -111,7 +110,7 @@ class _WalletScreenState extends State<WalletScreen> {
                           style: TextStyle(
                             fontFamily: 'BernardMTCondensed',
                             fontWeight: FontWeight.w400,
-                            fontSize: 16,
+                            fontSize: mqSize.width*0.045,
                             color: Colors.green,
                           ),
                         ),
@@ -120,11 +119,11 @@ class _WalletScreenState extends State<WalletScreen> {
                   ),
                 ],
               ),
-              SizedBox(height: mqHeight * 0.03,),
+              SizedBox(height: mqSize.height*0.03,),
 
               // real time chart
               SizedBox(
-                width: mqWidth * 0.9,
+                width: mqSize.width*0.9,
                 height: 160,
                 child: InteractiveViewer(
                   boundaryMargin: const EdgeInsets.all(100),
@@ -135,7 +134,7 @@ class _WalletScreenState extends State<WalletScreen> {
                   child: WalletChart(),
                 ),
               ),
-              SizedBox(height: mqHeight * 0.04,),
+              SizedBox(height: mqSize.height*0.04,),
 
               // deposit buttons
               Row(
@@ -144,105 +143,105 @@ class _WalletScreenState extends State<WalletScreen> {
                   Column(
                     children: [
                       Container(
-                        height: 64,
-                        width: 64,
+                        height: mqSize.height*0.095,
+                        width: mqSize.height*0.095,
                         decoration: BoxDecoration(
                           color: Color(0xFF3F3228),
                           borderRadius: BorderRadius.circular(50),
                         ),
-                        child: Icon(Icons.add, size: 28,)
+                        child: Icon(Icons.add, size: mqSize.height*0.04,)
                       ),
-                      SizedBox(height: mqHeight * 0.01,),
+                      SizedBox(height: mqSize.height*0.01,),
 
                       Text(
                         'Buy',
                         style: TextStyle(
                           fontFamily: 'Benne',
                           fontWeight: FontWeight.w400,
-                          fontSize: 14,
+                          fontSize: mqSize.width*0.035,
                           color: Color(0xFFC9C9C9),
                         ),
                       ),
                     ],
                   ),
-                  SizedBox(width: mqWidth * 0.05,),
+                  SizedBox(width: mqSize.width*0.05,),
 
                   Column(
                     children: [
                       Container(
-                        height: 64,
-                        width: 64,
+                        height: mqSize.height*0.095,
+                        width: mqSize.height*0.095,
                         decoration: BoxDecoration(
                           color: Color(0xFF3F3228),
                           borderRadius: BorderRadius.circular(50),
                         ),
                         child: Image.asset(
                           'assets/images/minus_icons.png',
-                          width: 28,
-                          height: 28,
+                          width: mqSize.height*0.04,
+                          height: mqSize.height*0.04,
                           color: Colors.white,
                         ),
                       ),
-                      SizedBox(height: mqHeight * 0.01,),
+                      SizedBox(height: mqSize.height*0.01,),
 
                       Text(
                         'Sell',
                         style: TextStyle(
                           fontFamily: 'Benne',
                           fontWeight: FontWeight.w400,
-                          fontSize: 14,
+                          fontSize: mqSize.width*0.035,
                           color: Color(0xFFC9C9C9),
                         ),
                       ),
                     ],
                   ),
-                  SizedBox(width: mqWidth * 0.05,),
+                  SizedBox(width: mqSize.width*0.05,),
 
                   Column(
                     children: [
                       Container(
-                        height: 64,
-                        width: 64,
+                        height: mqSize.height*0.095,
+                        width: mqSize.height*0.095,
                         decoration: BoxDecoration(
                           color: Color(0xFF3F3228),
                           borderRadius: BorderRadius.circular(50),
                         ),
-                        child: Icon(Icons.arrow_upward, size: 28,)
+                        child: Icon(Icons.arrow_upward, size: mqSize.height*0.04,)
                       ),
-                      SizedBox(height: mqHeight * 0.01,),
+                      SizedBox(height: mqSize.height*0.01,),
 
                       Text(
                         'Deposit',
                         style: TextStyle(
                           fontFamily: 'Benne',
                           fontWeight: FontWeight.w400,
-                          fontSize: 14,
+                          fontSize: mqSize.width*0.035,
                           color: Color(0xFFC9C9C9),
                         ),
                       ),
                     ],
                   ),
-                  SizedBox(width: mqWidth * 0.05,),
+                  SizedBox(width: mqSize.width*0.05,),
 
                   Column(
                     children: [
                       Container(
-                        height: 64,
-                        width: 64,
+                        height: mqSize.height*0.095,
+                        width: mqSize.height*0.095,
                         decoration: BoxDecoration(
                           color: Color(0xFF3F3228),
                           borderRadius: BorderRadius.circular(50),
                         ),
-                        child: Icon(Icons.arrow_downward, size: 28,)
+                        child: Icon(Icons.arrow_downward, size: mqSize.height*0.04,)
                       ),
-                      SizedBox(height: mqHeight * 0.01,),
+                      SizedBox(height: mqSize.height*0.01,),
 
                       Text(
                         'Withdraw',
                         style: TextStyle(
                           fontFamily: 'Benne',
                           fontWeight: FontWeight.w400,
-                          fontSize: 14,
+                          fontSize: mqSize.width*0.035,
                           color: Color(0xFFC9C9C9),
                         ),
                       ),
@@ -250,7 +249,7 @@ class _WalletScreenState extends State<WalletScreen> {
                   ),
                 ],
               ),
-              SizedBox(height: mqHeight * 0.03,),
+              SizedBox(height: mqSize.height*0.03,),
 
               Padding(
                 padding: EdgeInsets.symmetric(horizontal: 20),
@@ -261,18 +260,18 @@ class _WalletScreenState extends State<WalletScreen> {
                       style: TextStyle(
                         fontFamily: 'Benne',
                         fontWeight: FontWeight.w400,
-                        fontSize: 18,
+                        fontSize: mqSize.width*0.047,
                         color: Colors.white,
                       ),
                     ),
                   ],
                 ),
               ),
-              SizedBox(height: mqHeight * 0.01,),
+              SizedBox(height: mqSize.height*0.01,),
 
               Expanded(
                 child: ListView.builder(
-                  padding: EdgeInsets.symmetric(horizontal: mqWidth * 0.04),
+                  padding: EdgeInsets.symmetric(horizontal: mqSize.width*0.04),
                   itemCount: 10,
                   itemBuilder: (context, index) {
                     return Container(
@@ -283,7 +282,7 @@ class _WalletScreenState extends State<WalletScreen> {
                       child: Row(
                         children: [
                           Image.asset('assets/images/bit_coin.png'),
-                          SizedBox(width: mqWidth * 0.02),
+                          SizedBox(width: mqSize.width*0.02),
 
                           Expanded(
                             child: Column(

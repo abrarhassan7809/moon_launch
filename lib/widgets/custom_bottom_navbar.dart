@@ -7,24 +7,24 @@ class CustomBottomNavBar extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final mqWidth = MediaQuery.of(context).size.width;
+    final Size mqSize = MediaQuery.of(context).size;
 
     return SizedBox(
-      width: mqWidth,
-      height: 90, // increased height to move icons down
+      width: mqSize.width,
+      height: 90,
       child: Stack(
         clipBehavior: Clip.none,
         children: [
           // Custom Painted Background
           CustomPaint(
-            size: Size(mqWidth, 80),
+            size: Size(mqSize.width, 80),
             painter: BNBCustomPainter(),
           ),
 
           // Center Button
           Positioned(
             top: -20,
-            left: mqWidth / 2 - 35,
+            left: mqSize.width / 2 - 35,
             child: InkWell(
               onTap: () {
                 Navigator.push(
@@ -74,7 +74,7 @@ class CustomBottomNavBar extends StatelessWidget {
                       selectedIndex: selectedIndex,
                       iconPath: 'assets/images/wallet_icon.png',
                     ),
-                    SizedBox(width: mqWidth * 0.20),
+                    SizedBox(width: mqSize.width*0.20),
                     _navIcon(
                       index: 2,
                       selectedIndex: selectedIndex,

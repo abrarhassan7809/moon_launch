@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:moon_launch/views/activity_screen.dart';
+import 'package:moon_launch/views/reward_screen.dart';
 import 'package:moon_launch/widgets/profile_background.dart';
-import '../widgets/custom_bottom_navbar.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key});
@@ -13,8 +14,7 @@ class _HomeScreenState extends State<HomeScreen> {
 
   @override
   Widget build(BuildContext context) {
-    final mqHeight = MediaQuery.of(context).size.height;
-    final mqWidth = MediaQuery.of(context).size.width;
+    final Size mqSize = MediaQuery.of(context).size;
 
     return Scaffold(
       extendBodyBehindAppBar: true,
@@ -26,7 +26,7 @@ class _HomeScreenState extends State<HomeScreen> {
 
         title: Image.asset(
           'assets/images/moon_launch_logo.png',
-          width: 100,
+          width: mqSize.width*0.25,
         ),
 
         actions: [
@@ -41,7 +41,7 @@ class _HomeScreenState extends State<HomeScreen> {
       body: ProfileBackground(
         child: SafeArea(
           child: Padding(
-            padding: EdgeInsets.only(top: mqHeight * 0.03,),
+            padding: EdgeInsets.only(top: mqSize.height*0.03,),
             child: Center(
               child: Column(
                 children: [
@@ -50,11 +50,11 @@ class _HomeScreenState extends State<HomeScreen> {
                     style: TextStyle(
                       fontFamily: 'Benne',
                       fontWeight: FontWeight.w400,
-                      fontSize: 16,
+                      fontSize: mqSize.width*0.045,
                       color: Color(0xFFC9C9C9),
                     ),
                   ),
-                  SizedBox(height: mqHeight * 0.01,),
+                  SizedBox(height: mqSize.height*0.01,),
 
                   RichText(
                     text: TextSpan(
@@ -66,28 +66,25 @@ class _HomeScreenState extends State<HomeScreen> {
                       children: [
                         TextSpan(
                           text: '\$7,765,431',
-                          style: TextStyle(fontSize: 30),
+                          style: TextStyle(fontSize: mqSize.width*0.085),
                         ),
                         WidgetSpan(
                           alignment: PlaceholderAlignment.baseline,
                           baseline: TextBaseline.alphabetic,
-                          child: Padding(
-                            padding: const EdgeInsets.only(left: 4),
-                            child: Text(
-                              'usd',
-                              style: TextStyle(
-                                fontFamily: 'BernardMTCondensed',
-                                fontWeight: FontWeight.w400,
-                                fontSize: 14,
-                                color: Colors.white,
-                              ),
+                          child: Text(
+                            'usd',
+                            style: TextStyle(
+                              fontFamily: 'BernardMTCondensed',
+                              fontWeight: FontWeight.w400,
+                              fontSize: mqSize.width*0.035,
+                              color: Colors.white,
                             ),
                           ),
                         ),
                       ],
                     ),
                   ),
-                  SizedBox(height: mqHeight * 0.03,),
+                  SizedBox(height: mqSize.height*0.03,),
 
                   // deposit buttons
                   Row(
@@ -102,7 +99,7 @@ class _HomeScreenState extends State<HomeScreen> {
                             ],
                           ),
                           border: Border.all(width: 1),
-                          borderRadius: BorderRadius.circular(30),
+                          borderRadius: BorderRadius.circular(50),
                         ),
                         child: FilledButton(
                           onPressed: () {},
@@ -110,19 +107,22 @@ class _HomeScreenState extends State<HomeScreen> {
                             backgroundColor: Colors.transparent,
                             shadowColor: Colors.transparent,
                             shape: RoundedRectangleBorder(
-                              borderRadius: BorderRadius.circular(30),
+                              borderRadius: BorderRadius.circular(50),
                             ),
-                            padding: const EdgeInsets.symmetric(horizontal: 22, vertical: 14),
+                            padding: EdgeInsets.symmetric(
+                              horizontal: mqSize.width*0.07,
+                              vertical: mqSize.height*0.023,
+                            ),
                           ),
                           child: Row(
                             mainAxisSize: MainAxisSize.min,
-                            children: const [
+                            children: [
                               Text(
                                 'Deposit',
                                 style: TextStyle(
                                   fontFamily: 'BernardMTCondensed',
                                   fontWeight: FontWeight.w400,
-                                  fontSize: 16,
+                                  fontSize: mqSize.width*0.045,
                                   color: Colors.white,
                                 ),
                               ),
@@ -132,7 +132,7 @@ class _HomeScreenState extends State<HomeScreen> {
                           ),
                         ),
                       ),
-                      SizedBox(width: mqWidth * 0.03,),
+                      SizedBox(width: mqSize.width*0.03,),
 
                       Container(
                         decoration: BoxDecoration(
@@ -142,32 +142,35 @@ class _HomeScreenState extends State<HomeScreen> {
                               Color(0xFFDB2519)
                             ],
                           ),
-                          borderRadius: BorderRadius.circular(30),
+                          borderRadius: BorderRadius.circular(50),
                         ),
                         child: Container(
-                          margin: const EdgeInsets.all(2),
+                          margin: EdgeInsets.all(2),
                           decoration: BoxDecoration(
                             color: Colors.black,
-                            borderRadius: BorderRadius.circular(28),
+                            borderRadius: BorderRadius.circular(50),
                           ),
                           child: OutlinedButton(
                             onPressed: () {},
                             style: OutlinedButton.styleFrom(
                               side: BorderSide.none,
                               shape: RoundedRectangleBorder(
-                                borderRadius: BorderRadius.circular(28),
+                                borderRadius: BorderRadius.circular(50),
                               ),
-                              padding: const EdgeInsets.symmetric(horizontal: 22, vertical: 14),
+                              padding: EdgeInsets.symmetric(
+                                horizontal: mqSize.width*0.062,
+                                vertical: mqSize.height*0.02,
+                              ),
                             ),
                             child: Row(
                               mainAxisSize: MainAxisSize.min,
-                              children: const [
+                              children: [
                                 Text(
                                   'Withdraw',
                                   style: TextStyle(
                                     fontFamily: 'BernardMTCondensed',
                                     fontWeight: FontWeight.w400,
-                                    fontSize: 16,
+                                    fontSize: mqSize.width*0.045,
                                     color: Colors.white,
                                   ),
                                 ),
@@ -180,7 +183,7 @@ class _HomeScreenState extends State<HomeScreen> {
                       ),
                     ],
                   ),
-                  SizedBox(height: mqHeight * 0.03,),
+                  SizedBox(height: mqSize.height*0.03,),
 
                   // earning buttons
                   Row(
@@ -188,59 +191,67 @@ class _HomeScreenState extends State<HomeScreen> {
                     children: [
                       Column(
                         children: [
-                          Container(
-                            height: 64,
-                            width: 64,
-                            decoration: BoxDecoration(
-                              color: Color(0xFF3F3228),
-                              borderRadius: BorderRadius.circular(50),
-                            ),
-                            child: Image.asset(
-                              'assets/images/coin_Icons.png',
-                              width: 28,
-                              height: 28,
-                              color: Colors.white,
+                          InkWell(
+                            onTap: () {
+                              Navigator.push(
+                                context,
+                                MaterialPageRoute(builder: (_) => RewardScreen()),
+                              );
+                            },
+                            child: Container(
+                              height: mqSize.height*0.095,
+                              width: mqSize.height*0.095,
+                              decoration: BoxDecoration(
+                                color: Color(0xFF3F3228),
+                                borderRadius: BorderRadius.circular(50),
+                              ),
+                              child: Image.asset(
+                                'assets/images/coin_Icons.png',
+                                width: mqSize.height*0.095,
+                                height: mqSize.height*0.095,
+                                color: Colors.white,
+                              ),
                             ),
                           ),
-                          SizedBox(height: mqHeight * 0.01,),
+                          SizedBox(height: mqSize.height*0.01,),
 
                           Text(
                             'Earn',
                             style: TextStyle(
                               fontFamily: 'Benne',
                               fontWeight: FontWeight.w400,
-                              fontSize: 14,
+                              fontSize: mqSize.width*0.035,
                               color: Color(0xFFC9C9C9),
                             ),
                           ),
                         ],
                       ),
-                      SizedBox(width: mqWidth * 0.05,),
+                      SizedBox(width: mqSize.width*0.05,),
 
                       Column(
                         children: [
                           Container(
-                            height: 64,
-                            width: 64,
+                            height: mqSize.height*0.095,
+                            width: mqSize.height*0.095,
                             decoration: BoxDecoration(
                               color: Color(0xFF3F3228),
                               borderRadius: BorderRadius.circular(50),
                             ),
                             child: Image.asset(
                               'assets/images/bell_Icons.png',
-                              width: 28,
-                              height: 28,
+                              width: mqSize.height*0.095,
+                              height: mqSize.height*0.095,
                               color: Colors.white,
                             ),
                           ),
-                          SizedBox(height: mqHeight * 0.01,),
+                          SizedBox(height: mqSize.height*0.01,),
 
                           Text(
                             'Price Alert',
                             style: TextStyle(
                               fontFamily: 'Benne',
                               fontWeight: FontWeight.w400,
-                              fontSize: 14,
+                              fontSize: mqSize.width*0.035,
                               color: Color(0xFFC9C9C9),
                             ),
                           ),
@@ -248,7 +259,7 @@ class _HomeScreenState extends State<HomeScreen> {
                       ),
                     ],
                   ),
-                  SizedBox(height: mqHeight * 0.03,),
+                  SizedBox(height: mqSize.height*0.03,),
 
                   // top coins list
                   Padding(
@@ -261,38 +272,46 @@ class _HomeScreenState extends State<HomeScreen> {
                           style: TextStyle(
                             fontFamily: 'Benne',
                             fontWeight: FontWeight.w400,
-                            fontSize: 18,
+                            fontSize: mqSize.width*0.047,
                             color: Colors.white,
                           ),
                         ),
 
-                        ShaderMask(
-                          shaderCallback: (bounds) {
-                            return const LinearGradient(
-                              colors: [
-                                Color(0xFFFFE600),
-                                Color(0xFFDB2519),
-                              ],
-                            ).createShader(bounds);
+                        InkWell(
+                          onTap: () {
+                            Navigator.push(
+                                context,
+                                MaterialPageRoute(builder: (_) => ActivityScreen())
+                            );
                           },
-                          child: Text(
-                            'Edit',
-                            style: TextStyle(
-                              fontFamily: 'Benne',
-                              fontWeight: FontWeight.w400,
-                              fontSize: 18,
-                              color: Colors.white,
+                          child: ShaderMask(
+                            shaderCallback: (bounds) {
+                              return const LinearGradient(
+                                colors: [
+                                  Color(0xFFFFE600),
+                                  Color(0xFFDB2519),
+                                ],
+                              ).createShader(bounds);
+                            },
+                            child: Text(
+                              'See All',
+                              style: TextStyle(
+                                fontFamily: 'Benne',
+                                fontWeight: FontWeight.w400,
+                                fontSize: mqSize.width*0.047,
+                                color: Colors.white,
+                              ),
                             ),
                           ),
                         ),
                       ],
                     ),
                   ),
-                  SizedBox(height: mqHeight * 0.01),
+                  SizedBox(height: mqSize.height*0.01),
 
                   Expanded(
                     child: ListView.builder(
-                      padding: EdgeInsets.symmetric(horizontal: mqWidth * 0.04),
+                      padding: EdgeInsets.symmetric(horizontal: mqSize.width*0.04),
                       itemCount: 10,
                       itemBuilder: (context, index) {
                         return Container(
@@ -303,7 +322,7 @@ class _HomeScreenState extends State<HomeScreen> {
                           child: Row(
                             children: [
                               Image.asset('assets/images/bit_coin.png'),
-                              SizedBox(width: mqWidth * 0.02),
+                              SizedBox(width: mqSize.width*0.02),
 
                               Expanded(
                                 child: Column(

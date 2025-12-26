@@ -17,8 +17,7 @@ class _LoginScreenState extends State<LoginScreen> {
 
   @override
   Widget build(BuildContext context) {
-    late final mqHeight = MediaQuery.of(context).size.height;
-    late final mqWidth = MediaQuery.of(context).size.width;
+    final Size mqSize = MediaQuery.of(context).size;
 
     return Scaffold(
       resizeToAvoidBottomInset: true,
@@ -39,12 +38,12 @@ class _LoginScreenState extends State<LoginScreen> {
                       children: [
                         Image.asset(
                           'assets/images/moon_launch_logo.png',
-                          width: mqWidth * 0.7,
+                          width: mqSize.width*0.7,
                         ),
-                        SizedBox(height: mqHeight * 0.06,),
+                        SizedBox(height: mqSize.height*0.06,),
 
                         Padding(
-                          padding: EdgeInsets.symmetric(horizontal: mqWidth * 0.08),
+                          padding: EdgeInsets.symmetric(horizontal: mqSize.width*0.08),
                           child: Row(
                             mainAxisAlignment: MainAxisAlignment.start,
                             children: [
@@ -54,17 +53,17 @@ class _LoginScreenState extends State<LoginScreen> {
                                 style: TextStyle(
                                   fontFamily: 'BernardMTCondensed',
                                   fontWeight: FontWeight.w400,
-                                  fontSize: 24,
+                                  fontSize: mqSize.width*0.06,
                                   color: Colors.white,
                                 ),
                               ),
                             ],
                           ),
                         ),
-                        SizedBox(height: mqHeight * 0.01,),
+                        SizedBox(height: mqSize.height*0.01,),
 
                         Padding(
-                          padding: EdgeInsets.symmetric(horizontal: mqWidth * 0.08),
+                          padding: EdgeInsets.symmetric(horizontal: mqSize.width*0.08),
                           child: Row(
                             mainAxisAlignment: MainAxisAlignment.start,
                             children: [
@@ -74,17 +73,17 @@ class _LoginScreenState extends State<LoginScreen> {
                                 style: TextStyle(
                                   fontFamily: 'Benne',
                                   fontWeight: FontWeight.w400,
-                                  fontSize: 14,
+                                  fontSize: mqSize.width*0.035,
                                   color: Colors.white,
                                 ),
                               ),
                             ],
                           ),
                         ),
-                        SizedBox(height: mqHeight * 0.02,),
+                        SizedBox(height: mqSize.height*0.02,),
 
                         Padding(
-                          padding: EdgeInsets.symmetric(horizontal: mqWidth * 0.07),
+                          padding: EdgeInsets.symmetric(horizontal: mqSize.width*0.07),
                           child: TextField(
                             decoration: InputDecoration(
                               hint: Text(
@@ -92,19 +91,19 @@ class _LoginScreenState extends State<LoginScreen> {
                                 style: TextStyle(fontFamily: 'Benne', fontSize: 14),
                               ),
                               border: OutlineInputBorder(
-                                borderRadius: BorderRadius.circular(mqWidth * 0.5),
+                                borderRadius: BorderRadius.circular(mqSize.width*0.5),
                               ),
                               focusedBorder: OutlineInputBorder(
-                                borderRadius: BorderRadius.circular(mqWidth * 0.5),
+                                borderRadius: BorderRadius.circular(mqSize.width*0.5),
                                 borderSide: const BorderSide(color: Color(0xFFDB2519)),
                               ),
                             ),
                           ),
                         ),
-                        SizedBox(height: mqHeight * 0.01,),
+                        SizedBox(height: mqSize.height*0.01,),
 
                         Padding(
-                          padding: EdgeInsets.symmetric(horizontal: mqWidth * 0.07),
+                          padding: EdgeInsets.symmetric(horizontal: mqSize.width*0.07),
                           child: TextField(
                             obscureText: !isPasswordVisible,
                             decoration: InputDecoration(
@@ -113,10 +112,10 @@ class _LoginScreenState extends State<LoginScreen> {
                                 style: TextStyle(fontFamily: 'Benne', fontSize: 14),
                               ),
                               border: OutlineInputBorder(
-                                borderRadius: BorderRadius.circular(mqWidth * 0.5),
+                                borderRadius: BorderRadius.circular(mqSize.width*0.5),
                               ),
                               focusedBorder: OutlineInputBorder(
-                                borderRadius: BorderRadius.circular(mqWidth * 0.5),
+                                borderRadius: BorderRadius.circular(mqSize.width*0.5),
                                 borderSide: const BorderSide(color: Color(0xFFDB2519)),
                               ),
                               suffixIcon: IconButton(
@@ -133,10 +132,10 @@ class _LoginScreenState extends State<LoginScreen> {
                             ),
                           ),
                         ),
-                        SizedBox(height: mqHeight * 0.03,),
+                        SizedBox(height: mqSize.height*0.03,),
 
                         Padding(
-                          padding: EdgeInsets.only(left: mqWidth * 0.07, right: mqWidth * 0.08),
+                          padding: EdgeInsets.only(left: mqSize.width*0.07, right: mqSize.width*0.08),
                           child: Row(
                             mainAxisAlignment: MainAxisAlignment.spaceBetween,
                             children: [
@@ -175,7 +174,7 @@ class _LoginScreenState extends State<LoginScreen> {
                                           : null,
                                     ),
                                   ),
-                                  SizedBox(width: mqWidth * 0.02),
+                                  SizedBox(width: mqSize.width*0.02),
 
                                   Text(
                                     'Remember me',
@@ -198,10 +197,7 @@ class _LoginScreenState extends State<LoginScreen> {
                                 child: ShaderMask(
                                   shaderCallback: (bounds) {
                                     return const LinearGradient(
-                                      colors: [
-                                        Color(0xFFFFE600),
-                                        Color(0xFFDB2519),
-                                      ],
+                                      colors: [Color(0xFFFFE600), Color(0xFFDB2519),],
                                     ).createShader(bounds);
                                   },
                                   child: Text(
@@ -218,10 +214,10 @@ class _LoginScreenState extends State<LoginScreen> {
                             ],
                           ),
                         ),
-                        SizedBox(height: mqHeight * 0.04,),
+                        SizedBox(height: mqSize.height*0.04,),
 
                         Padding(
-                          padding: EdgeInsets.symmetric(horizontal: mqWidth * 0.05),
+                          padding: EdgeInsets.symmetric(horizontal: mqSize.width*0.05),
                           child: InkWell(
                             onTap: () {
                               Navigator.pushReplacement(
@@ -230,24 +226,20 @@ class _LoginScreenState extends State<LoginScreen> {
                               );
                             },
                             child: Container(
-                              height: mqHeight * 0.06,
+                              height: mqSize.height*0.06,
                               width: double.infinity,
                               decoration: BoxDecoration(
                                 gradient: LinearGradient(
-                                  colors: [
-                                    Color(0xFFFFE600),
-                                    Color(0xFFDB2519),
-                                  ],
+                                  colors: [Color(0xFFFFE600), Color(0xFFDB2519),],
                                   begin: Alignment.centerLeft,
                                   end: Alignment.centerRight,
                                 ),
-                                borderRadius: BorderRadius.circular(40),
+                                borderRadius: BorderRadius.circular(50),
                               ),
                               child: Center(
                                 child: Text(
                                   'Login',
                                   style: TextStyle(
-                                    letterSpacing: -0.3,
                                     fontFamily: 'BernardMTCondensed',
                                     fontWeight: FontWeight.w400,
                                     color: Colors.white,
@@ -258,7 +250,7 @@ class _LoginScreenState extends State<LoginScreen> {
                             ),
                           ),
                         ),
-                        SizedBox(height: mqHeight * 0.15,),
+                        SizedBox(height: mqSize.height*0.15,),
 
                         Row(
                           mainAxisAlignment: MainAxisAlignment.center,
@@ -283,10 +275,7 @@ class _LoginScreenState extends State<LoginScreen> {
                               child: ShaderMask(
                                 shaderCallback: (bounds) {
                                   return const LinearGradient(
-                                    colors: [
-                                      Color(0xFFFFE600),
-                                      Color(0xFFDB2519),
-                                    ],
+                                    colors: [Color(0xFFFFE600), Color(0xFFDB2519),],
                                   ).createShader(bounds);
                                 },
                                 child: Text(

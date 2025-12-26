@@ -38,136 +38,129 @@ class _GuidScreenState extends State<GuidScreen> {
 
   @override
   Widget build(BuildContext context) {
-    late final mqHeight = MediaQuery.of(context).size.height;
-    late final mqWidth = MediaQuery.of(context).size.width;
+    final Size mqSize = MediaQuery.of(context).size;
 
     return Scaffold(
       backgroundColor: Colors.black,
       body: AppBackground(
-        child: Column(
-          children: [
-            SizedBox(height: mqHeight * 0.11,),
-
-            Image.asset(
-              'assets/images/moon_launch_logo.png',
-              width: mqWidth * 0.5,
-            ),
-
-            Expanded(
-              child: PageView.builder(
-                controller: _pageController,
-                itemCount: _pages.length,
-                onPageChanged: (index) {
-                  setState(() => _currentIndex = index);
-                },
-                itemBuilder: (context, index) {
-                  return Column(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    crossAxisAlignment: CrossAxisAlignment.center,
-                    children: [
-                      SizedBox(
-                        height: mqHeight * 0.45,
-                        child: Image.asset(
-                          _pages[index]['image']!,
-                          width: double.infinity,
-                          fit: BoxFit.cover,
-                        ),
-                      ),
-                      SizedBox(height: mqHeight * 0.02),
-
-                      Row(
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        children: List.generate(
-                          _pages.length,
-                              (index) => _buildDot(index),
-                        ),
-                      ),
-                      SizedBox(height: mqHeight * 0.02),
-
-                      Padding(
-                        padding: EdgeInsets.symmetric(horizontal: mqWidth * 0.2),
-                        child: Text(
-                          _pages[index]['title']!,
-                          textAlign: TextAlign.center,
-                          style: TextStyle(
-                            letterSpacing: -0.3,
-                            fontSize: 30,
-                            fontFamily: 'BernardMTCondensed',
-                            fontWeight: FontWeight.w400,
-                            color: Colors.white,
-                          ),
-                        ),
-                      ),
-                      SizedBox(height: mqHeight * 0.01),
-
-                      Padding(
-                        padding: EdgeInsets.symmetric(horizontal: mqWidth * 0.15),
-                        child: Text(
-                          _pages[index]['description']!,
-                          textAlign: TextAlign.center,
-                          style: TextStyle(
-                            letterSpacing: -0.3,
-                            fontSize: 16,
-                            fontFamily: 'Benne',
-                            fontWeight: FontWeight.w400,
-                            color: Colors.grey.shade400,
-                          ),
-                        ),
-                      ),
-                    ],
-                  );
-                },
+        child: SafeArea(
+          child: Column(
+            children: [
+              Image.asset(
+                'assets/images/moon_launch_logo.png',
+                width: mqSize.width*0.5,
               ),
-            ),
 
-            Padding(
-              padding: EdgeInsets.symmetric(horizontal: mqWidth * 0.05),
-              child: InkWell(
-                onTap: () {
-                  if (_currentIndex == _pages.length - 1) {
-                    Navigator.pushReplacement(
-                      context,
-                      MaterialPageRoute(builder: (_) => LoginScreen()),
-                    );
-                  } else {
-                    _pageController.nextPage(
-                      duration: const Duration(milliseconds: 300),
-                      curve: Curves.easeInOut,
-                    );
-                  }
-                },
-                child: Container(
-                  height: mqHeight * 0.06,
-                  width: double.infinity,
-                  decoration: BoxDecoration(
-                    gradient: LinearGradient(
-                      colors: [
-                        Color(0xFFFFE600),
-                        Color(0xFFDB2519),
+              Expanded(
+                child: PageView.builder(
+                  controller: _pageController,
+                  itemCount: _pages.length,
+                  onPageChanged: (index) {
+                    setState(() => _currentIndex = index);
+                  },
+                  itemBuilder: (context, index) {
+                    return Column(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      crossAxisAlignment: CrossAxisAlignment.center,
+                      children: [
+                        SizedBox(
+                          height: mqSize.height*0.45,
+                          child: Image.asset(
+                            _pages[index]['image']!,
+                            width: double.infinity,
+                            fit: BoxFit.cover,
+                          ),
+                        ),
+                        SizedBox(height: mqSize.height*0.02),
+
+                        Row(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: List.generate(
+                            _pages.length,
+                                (index) => _buildDot(index),
+                          ),
+                        ),
+                        SizedBox(height: mqSize.height*0.02),
+
+                        Padding(
+                          padding: EdgeInsets.symmetric(horizontal: mqSize.width*0.2),
+                          child: Text(
+                            _pages[index]['title']!,
+                            textAlign: TextAlign.center,
+                            style: TextStyle(
+                              fontSize: mqSize.width*0.08,
+                              fontFamily: 'BernardMTCondensed',
+                              fontWeight: FontWeight.w400,
+                              color: Colors.white,
+                            ),
+                          ),
+                        ),
+                        SizedBox(height: mqSize.height*0.01),
+
+                        Padding(
+                          padding: EdgeInsets.symmetric(horizontal: mqSize.width*0.15),
+                          child: Text(
+                            _pages[index]['description']!,
+                            textAlign: TextAlign.center,
+                            style: TextStyle(
+                              fontSize: 16,
+                              fontFamily: 'Benne',
+                              fontWeight: FontWeight.w400,
+                              color: Colors.grey.shade400,
+                            ),
+                          ),
+                        ),
                       ],
-                      begin: Alignment.centerLeft,
-                      end: Alignment.centerRight,
+                    );
+                  },
+                ),
+              ),
+
+              Padding(
+                padding: EdgeInsets.symmetric(horizontal: mqSize.width*0.05),
+                child: InkWell(
+                  onTap: () {
+                    if (_currentIndex == _pages.length - 1) {
+                      Navigator.pushReplacement(
+                        context,
+                        MaterialPageRoute(builder: (_) => LoginScreen()),
+                      );
+                    } else {
+                      _pageController.nextPage(
+                        duration: const Duration(milliseconds: 300),
+                        curve: Curves.easeInOut,
+                      );
+                    }
+                  },
+                  child: Container(
+                    height: mqSize.height*0.06,
+                    width: double.infinity,
+                    decoration: BoxDecoration(
+                      gradient: LinearGradient(
+                        colors: [Color(0xFFFFE600), Color(0xFFDB2519),],
+                        begin: Alignment.centerLeft,
+                        end: Alignment.centerRight,
+                      ),
+                      borderRadius: BorderRadius.circular(50),
                     ),
-                    borderRadius: BorderRadius.circular(40),
-                  ),
-                  child: Center(
-                    child: Text(
-                      _currentIndex == _pages.length - 1 ? 'Continue' : 'Skip',
-                      style: TextStyle(
-                        letterSpacing: -0.3,
-                        fontFamily: 'BernardMTCondensed',
-                        fontWeight: FontWeight.w400,
-                        color: Colors.white,
-                        fontSize: 16,
+                    child: Center(
+                      child: Text(
+                        _currentIndex == _pages.length-1 ? 'Continue' : 'Skip',
+                        style: TextStyle(
+                          fontFamily: 'BernardMTCondensed',
+                          fontWeight: FontWeight.w400,
+                          color: Colors.white,
+                          fontSize: 16,
+                        ),
                       ),
                     ),
                   ),
                 ),
               ),
-            ),
-            SizedBox(height: mqHeight * 0.07,)
+              SizedBox(height: mqSize.height*0.07,)
 
-          ],
+            ],
+          ),
         ),
       ),
     );
@@ -184,10 +177,7 @@ class _GuidScreenState extends State<GuidScreen> {
       decoration: BoxDecoration(
         gradient: isActive
             ? const LinearGradient(
-          colors: [
-            Color(0xFFFFE600),
-            Color(0xFFDB2519),
-          ],
+          colors: [Color(0xFFFFE600), Color(0xFFDB2519),],
         )
             : null,
         color: isActive ? null : Colors.grey.shade600,

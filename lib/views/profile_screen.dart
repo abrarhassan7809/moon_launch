@@ -14,8 +14,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
 
   @override
   Widget build(BuildContext context) {
-    final mqHeight = MediaQuery.of(context).size.height;
-    final mqWidth = MediaQuery.of(context).size.width;
+    final Size mqSize = MediaQuery.of(context).size;
 
     return Scaffold(
       extendBody: true,
@@ -23,15 +22,15 @@ class _ProfileScreenState extends State<ProfileScreen> {
       body: ProfileBackground(
         child: SafeArea(
           child: Padding(
-            padding: EdgeInsets.only(left: 10, right: 10, top: mqHeight*0.09),
+            padding: EdgeInsets.only(left: 10, right: 10, top: mqSize.height*0.09),
             child: Column(
               children: [
                 Column(
                   spacing: 10,
                   children: [
                     Container(
-                      width: 110,
-                      height: 110,
+                      width: mqSize.height*0.16,
+                      height: mqSize.height*0.16,
                       decoration: BoxDecoration(
                         gradient: const LinearGradient(
                           colors: [
@@ -60,7 +59,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
                       style: TextStyle(
                         fontFamily: 'BernardMTCondensed',
                         fontWeight: FontWeight.w400,
-                        fontSize: 16,
+                        fontSize: mqSize.width*0.042,
                         color: Color(0xFFC9C9C9),
                       ),
                     ),
@@ -70,13 +69,13 @@ class _ProfileScreenState extends State<ProfileScreen> {
                       style: TextStyle(
                         fontFamily: 'Benne',
                         fontWeight: FontWeight.w400,
-                        fontSize: 16,
+                        fontSize: mqSize.width*0.042,
                         color: Color(0xFFC9C9C9),
                       ),
                     ),
                   ],
                 ),
-                SizedBox(height: mqHeight * 0.03,),
+                SizedBox(height: mqSize.height*0.03,),
 
                 Column(
                   children: [
@@ -87,7 +86,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
                           fontFamily: 'Benne',
                           fontWeight: FontWeight.w400,
                           color: Colors.white,
-                          fontSize: 16,
+                          fontSize: mqSize.width*0.042,
                         ),
                       ),
                       value: startNotification,
@@ -101,7 +100,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
                         });
                       },
                     ),
-                    SizedBox(height: mqHeight * 0.02,),
+                    SizedBox(height: mqSize.height*0.02,),
 
                     InkWell(
                       onTap: () {
@@ -116,24 +115,24 @@ class _ProfileScreenState extends State<ProfileScreen> {
                           children: [
                             Text(
                               'Edit Profile',
-                              style: const TextStyle(
+                              style: TextStyle(
                                 fontFamily: 'Benne',
                                 fontWeight: FontWeight.w400,
-                                fontSize: 16,
+                                fontSize: mqSize.width*0.042,
                                 color: Colors.white,
                               ),
                             ),
                             const Spacer(),
-                            const Icon(
+                            Icon(
                               Icons.arrow_forward_ios,
-                              size: 18,
+                              size: mqSize.width*0.045,
                               color: Colors.white,
                             ),
                           ],
                         ),
                       ),
                     ),
-                    SizedBox(height: mqHeight * 0.04,),
+                    SizedBox(height: mqSize.height*0.04,),
 
                     InkWell(
                       onTap: () {},
@@ -143,24 +142,24 @@ class _ProfileScreenState extends State<ProfileScreen> {
                           children: [
                             Text(
                               'Help Center',
-                              style: const TextStyle(
+                              style: TextStyle(
                                 fontFamily: 'Benne',
                                 fontWeight: FontWeight.w400,
-                                fontSize: 16,
+                                fontSize: mqSize.width*0.042,
                                 color: Colors.white,
                               ),
                             ),
                             const Spacer(),
-                            const Icon(
+                            Icon(
                               Icons.arrow_forward_ios,
-                              size: 18,
+                              size: mqSize.width*0.045,
                               color: Colors.white,
                             ),
                           ],
                         ),
                       ),
                     ),
-                    SizedBox(height: mqHeight * 0.04,),
+                    SizedBox(height: mqSize.height*0.04,),
 
                     InkWell(
                       onTap: () {},
@@ -170,17 +169,17 @@ class _ProfileScreenState extends State<ProfileScreen> {
                           children: [
                             Text(
                               'Expert Keys',
-                              style: const TextStyle(
+                              style: TextStyle(
                                 fontFamily: 'Benne',
                                 fontWeight: FontWeight.w400,
-                                fontSize: 16,
+                                fontSize: mqSize.width*0.042,
                                 color: Colors.white,
                               ),
                             ),
                             const Spacer(),
-                            const Icon(
+                            Icon(
                               Icons.arrow_forward_ios,
-                              size: 18,
+                              size: mqSize.width*0.045,
                               color: Colors.white,
                             ),
                           ],
@@ -189,15 +188,15 @@ class _ProfileScreenState extends State<ProfileScreen> {
                     ),
                   ],
                 ),
-                SizedBox(height: mqHeight * 0.04,),
+                SizedBox(height: mqSize.height*0.04,),
 
                 // logout profile buttons
                 InkWell(
                   onTap: () {},
                   child: Padding(
-                    padding: EdgeInsets.symmetric(horizontal: mqWidth * 0.05),
+                    padding: EdgeInsets.symmetric(horizontal: mqSize.width*0.05),
                     child: Container(
-                      height: mqHeight * 0.06,
+                      height: mqSize.height*0.06,
                       width: double.infinity,
                       decoration: BoxDecoration(
                         border: Border.all(width: 2, color: Color(0xFFDB2519)),
@@ -224,14 +223,14 @@ class _ProfileScreenState extends State<ProfileScreen> {
                     ),
                   ),
                 ),
-                SizedBox(height: mqHeight * 0.02,),
+                SizedBox(height: mqSize.height*0.02,),
 
                 InkWell(
                   onTap: () {},
                   child: Padding(
-                    padding: EdgeInsets.symmetric(horizontal: mqWidth * 0.05),
+                    padding: EdgeInsets.symmetric(horizontal: mqSize.width*0.05),
                     child: Container(
-                      height: mqHeight * 0.06,
+                      height: mqSize.height*0.06,
                       width: double.infinity,
                       decoration: BoxDecoration(
                         gradient: LinearGradient(

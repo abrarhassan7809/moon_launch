@@ -6,8 +6,7 @@ class TermConditionScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final mqHeight = MediaQuery.of(context).size.height;
-    final mqWidth = MediaQuery.of(context).size.width;
+    final Size mqSize = MediaQuery.of(context).size;
 
     return Scaffold(
       resizeToAvoidBottomInset: true,
@@ -40,7 +39,7 @@ class TermConditionScreen extends StatelessWidget {
 
             Image.asset(
               'assets/images/moon_launch_logo.png',
-              width: 100,
+              width: mqSize.width*0.25,
             ),
           ],
         ),
@@ -49,20 +48,20 @@ class TermConditionScreen extends StatelessWidget {
       body: AppBackground(
         child: SafeArea(
           child: Padding(
-            padding: EdgeInsets.symmetric(horizontal: mqWidth * 0.05, vertical: mqHeight * 0.02),
+            padding: EdgeInsets.symmetric(horizontal: mqSize.width*0.05, vertical: mqSize.height*0.02),
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                const Text(
+                Text(
                   'Terms & Conditions',
                   style: TextStyle(
                     fontFamily: 'BernardMTCondensed',
                     fontWeight: FontWeight.w400,
-                    fontSize: 24,
+                    fontSize: mqSize.width*0.06,
                     color: Colors.white,
                   ),
                 ),
-                SizedBox(height: mqHeight * 0.02),
+                SizedBox(height: mqSize.height*0.02),
 
                 Expanded(
                   child: SingleChildScrollView(
@@ -90,10 +89,10 @@ For full details, please visit our official website or contact our support team.
 
 Thank you for using Moon Launch.
                       ''',
-                      style: const TextStyle(
+                      style: TextStyle(
                         fontFamily: 'Benne',
                         fontWeight: FontWeight.w400,
-                        fontSize: 14,
+                        fontSize: mqSize.width*0.035,
                         color: Colors.white,
                         height: 1.6,
                       ),

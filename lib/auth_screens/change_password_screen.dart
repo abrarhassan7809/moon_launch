@@ -14,8 +14,7 @@ class _ChangePasswordScreenState extends State<ChangePasswordScreen> {
 
   @override
   Widget build(BuildContext context) {
-    final mqHeight = MediaQuery.of(context).size.height;
-    final mqWidth = MediaQuery.of(context).size.width;
+    final Size mqSize = MediaQuery.of(context).size;
 
     return Scaffold(
       resizeToAvoidBottomInset: true,
@@ -51,7 +50,7 @@ class _ChangePasswordScreenState extends State<ChangePasswordScreen> {
 
             Image.asset(
               'assets/images/moon_launch_logo.png',
-              width: 100,
+              width: mqSize.width*0.25,
             ),
           ],
         ),
@@ -62,10 +61,10 @@ class _ChangePasswordScreenState extends State<ChangePasswordScreen> {
           child: SingleChildScrollView(
             child: Column(
               children: [
-                Image.asset('assets/images/crypto_security_icon.png', height: 300,),
+                Image.asset('assets/images/crypto_security_icon.png', height: mqSize.height*0.45,),
 
                 Padding(
-                  padding: EdgeInsets.symmetric(horizontal: mqWidth * 0.05),
+                  padding: EdgeInsets.symmetric(horizontal: mqSize.width*0.05),
                   child: Row(
                     children: [
                       Text(
@@ -73,17 +72,17 @@ class _ChangePasswordScreenState extends State<ChangePasswordScreen> {
                         style: TextStyle(
                           fontFamily: 'BernardMTCondensed',
                           fontWeight: FontWeight.w400,
-                          fontSize: 24,
+                          fontSize: mqSize.width*0.06,
                           color: Colors.white,
                         ),
                       ),
                     ],
                   ),
                 ),
-                SizedBox(height: mqHeight * 0.01,),
+                SizedBox(height: mqSize.height*0.01,),
 
                 Padding(
-                  padding: EdgeInsets.symmetric(horizontal: mqWidth * 0.05),
+                  padding: EdgeInsets.symmetric(horizontal: mqSize.width*0.05),
                   child: Row(
                     children: [
                       Text(
@@ -91,17 +90,17 @@ class _ChangePasswordScreenState extends State<ChangePasswordScreen> {
                         style: TextStyle(
                           fontFamily: 'Benne',
                           fontWeight: FontWeight.w400,
-                          fontSize: 14,
+                          fontSize: mqSize.width*0.035,
                           color: Colors.white,
                         ),
                       ),
                     ],
                   ),
                 ),
-                SizedBox(height: mqHeight * 0.03,),
+                SizedBox(height: mqSize.height*0.03,),
 
                 Padding(
-                  padding: EdgeInsets.symmetric(horizontal: mqWidth * 0.05),
+                  padding: EdgeInsets.symmetric(horizontal: mqSize.width*0.05),
                   child: TextField(
                     obscureText: !isPasswordVisible,
                     decoration: InputDecoration(
@@ -110,10 +109,10 @@ class _ChangePasswordScreenState extends State<ChangePasswordScreen> {
                         style: TextStyle(fontFamily: 'Benne', fontSize: 14),
                       ),
                       border: OutlineInputBorder(
-                        borderRadius: BorderRadius.circular(mqWidth * 0.5),
+                        borderRadius: BorderRadius.circular(mqSize.width*0.5),
                       ),
                       focusedBorder: OutlineInputBorder(
-                        borderRadius: BorderRadius.circular(mqWidth * 0.5),
+                        borderRadius: BorderRadius.circular(mqSize.width*0.5),
                         borderSide: const BorderSide(color: Color(0xFFDB2519)),
                       ),
                       suffixIcon: IconButton(
@@ -130,10 +129,10 @@ class _ChangePasswordScreenState extends State<ChangePasswordScreen> {
                     ),
                   ),
                 ),
-                SizedBox(height: mqHeight * 0.01,),
+                SizedBox(height: mqSize.height*0.01,),
 
                 Padding(
-                  padding: EdgeInsets.symmetric(horizontal: mqWidth * 0.05),
+                  padding: EdgeInsets.symmetric(horizontal: mqSize.width*0.05),
                   child: TextField(
                     obscureText: !isConfirmPasswordVisible,
                     decoration: InputDecoration(
@@ -142,10 +141,10 @@ class _ChangePasswordScreenState extends State<ChangePasswordScreen> {
                         style: TextStyle(fontFamily: 'Benne', fontSize: 14),
                       ),
                       border: OutlineInputBorder(
-                        borderRadius: BorderRadius.circular(mqWidth * 0.5),
+                        borderRadius: BorderRadius.circular(mqSize.width*0.5),
                       ),
                       focusedBorder: OutlineInputBorder(
-                        borderRadius: BorderRadius.circular(mqWidth * 0.5),
+                        borderRadius: BorderRadius.circular(mqSize.width*0.5),
                         borderSide: const BorderSide(color: Color(0xFFDB2519)),
                       ),
                       suffixIcon: IconButton(
@@ -162,31 +161,27 @@ class _ChangePasswordScreenState extends State<ChangePasswordScreen> {
                     ),
                   ),
                 ),
-                SizedBox(height: mqHeight * 0.04,),
+                SizedBox(height: mqSize.height*0.04,),
 
                 Padding(
-                  padding: EdgeInsets.symmetric(horizontal: mqWidth * 0.05),
+                  padding: EdgeInsets.symmetric(horizontal: mqSize.width*0.05),
                   child: InkWell(
                     onTap: () {},
                     child: Container(
-                      height: mqHeight * 0.06,
+                      height: mqSize.height*0.06,
                       width: double.infinity,
                       decoration: BoxDecoration(
                         gradient: LinearGradient(
-                          colors: [
-                            Color(0xFFFFE600),
-                            Color(0xFFDB2519),
-                          ],
+                          colors: [Color(0xFFFFE600), Color(0xFFDB2519),],
                           begin: Alignment.centerLeft,
                           end: Alignment.centerRight,
                         ),
-                        borderRadius: BorderRadius.circular(40),
+                        borderRadius: BorderRadius.circular(50),
                       ),
                       child: Center(
                         child: Text(
                           'Update',
                           style: TextStyle(
-                            letterSpacing: -0.3,
                             fontFamily: 'BernardMTCondensed',
                             fontWeight: FontWeight.w400,
                             color: Colors.white,

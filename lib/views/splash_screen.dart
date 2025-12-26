@@ -1,5 +1,6 @@
 import 'dart:async';
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 import 'package:moon_launch/tutorial_screen/guid_screen.dart';
 
 class SplashScreen extends StatefulWidget {
@@ -9,9 +10,11 @@ class SplashScreen extends StatefulWidget {
   State<SplashScreen> createState() => _SplashScreenState();
 }
 
-class _SplashScreenState extends State<SplashScreen> with SingleTickerProviderStateMixin {
+class _SplashScreenState extends State<SplashScreen>
+    with SingleTickerProviderStateMixin {
+
   late AnimationController _controller;
-  late Animation<double> _animation;
+  late Animation<double> _scaleAnimation;
 
   @override
   void initState() {
@@ -19,48 +22,66 @@ class _SplashScreenState extends State<SplashScreen> with SingleTickerProviderSt
 
     _controller = AnimationController(
       vsync: this,
-      duration: Duration(seconds: 3),
+      duration: const Duration(seconds: 3),
     );
 
-    _animation = CurvedAnimation(
+    _scaleAnimation = CurvedAnimation(
       parent: _controller,
       curve: Curves.easeInOut,
     );
 
     _controller.forward();
 
-    Timer(Duration(seconds: 5), () {
+    Timer(const Duration(seconds: 5), () {
+      if (!mounted) return;
       Navigator.pushReplacement(
         context,
-        MaterialPageRoute(builder: (context) => GuidScreen()),
+        MaterialPageRoute(builder: (_) => const GuidScreen()),
       );
     });
   }
 
   @override
+  void dispose() {
+    _controller.dispose();
+    super.dispose();
+  }
+
+  @override
   Widget build(BuildContext context) {
+    final Size mqSize = MediaQuery.of(context).size;
+
     return Scaffold(
       backgroundColor: Colors.black,
-
-      body: Stack(
-        fit: StackFit.expand,
-        children: [
-          Image.asset(
-            'assets/images/bg_splash_screen.png',
-            fit: BoxFit.cover,
-          ),
-
-          Center(
-            child: ScaleTransition(
-              scale: _animation,
-              child: ClipRRect(
-                child: Image.asset('assets/images/moon_launch_logo.png'),
+      body: LayoutBuilder(
+        builder: (context, constraints) {
+          return Stack(
+            fit: StackFit.expand,
+            children: [
+              /// Background SVG Image
+              Image.asset(
+                'assets/images/bg_splash_screen.png',
+                fit: BoxFit.cover,
               ),
-            ),
-          ),
-        ],
+
+              /// Center Logo
+              Center(
+                child: ScaleTransition(
+                  scale: _scaleAnimation,
+                  child: SizedBox(
+                    width: mqSize.width*0.55,
+                    height: mqSize.width*0.55,
+                    child: Image.asset(
+                      'assets/images/moon_launch_logo.png',
+                      fit: BoxFit.contain,
+                    ),
+                  ),
+                ),
+              ),
+            ],
+          );
+        },
       ),
     );
   }
 }
-

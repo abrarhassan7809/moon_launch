@@ -17,8 +17,7 @@ class _OtpScreenState extends State<OtpScreen> {
 
   @override
   Widget build(BuildContext context) {
-    final mqHeight = MediaQuery.of(context).size.height;
-    final mqWidth = MediaQuery.of(context).size.width;
+    final Size mqSize = MediaQuery.of(context).size;
 
     return Scaffold(
       resizeToAvoidBottomInset: true,
@@ -54,7 +53,7 @@ class _OtpScreenState extends State<OtpScreen> {
 
             Image.asset(
               'assets/images/moon_launch_logo.png',
-              width: 100,
+              width: mqSize.width*0.25,
             ),
           ],
         ),
@@ -65,10 +64,10 @@ class _OtpScreenState extends State<OtpScreen> {
           child: SingleChildScrollView(
               child: Column(
                 children: [
-                  Image.asset('assets/images/verification_image.png', height: 310,),
+                  Image.asset('assets/images/verification_image.png', height: mqSize.height*0.45,),
 
                   Padding(
-                    padding: EdgeInsets.symmetric(horizontal: mqWidth * 0.05),
+                    padding: EdgeInsets.symmetric(horizontal: mqSize.width*0.05),
                     child: Row(
                       children: [
                         Text(
@@ -76,17 +75,17 @@ class _OtpScreenState extends State<OtpScreen> {
                           style: TextStyle(
                             fontFamily: 'BernardMTCondensed',
                             fontWeight: FontWeight.w400,
-                            fontSize: 24,
+                            fontSize: mqSize.width*0.06,
                             color: Colors.white,
                           ),
                         ),
                       ],
                     ),
                   ),
-                  SizedBox(height: mqHeight * 0.01,),
+                  SizedBox(height: mqSize.height*0.01,),
 
                   Padding(
-                    padding: EdgeInsets.symmetric(horizontal: mqWidth * 0.05),
+                    padding: EdgeInsets.symmetric(horizontal: mqSize.width*0.05),
                     child: Row(
                       children: [
                         Text(
@@ -94,17 +93,17 @@ class _OtpScreenState extends State<OtpScreen> {
                           style: TextStyle(
                             fontFamily: 'Benne',
                             fontWeight: FontWeight.w400,
-                            fontSize: 14,
+                            fontSize: mqSize.width*0.035,
                             color: Colors.white,
                           ),
                         ),
                       ],
                     ),
                   ),
-                  SizedBox(height: mqHeight * 0.03,),
+                  SizedBox(height: mqSize.height*0.03,),
 
                   Padding(
-                    padding: EdgeInsets.symmetric(horizontal: mqWidth * 0.05,),
+                    padding: EdgeInsets.symmetric(horizontal: mqSize.width*0.05,),
                     child: Row(
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: List.generate(6, (index) {
@@ -146,10 +145,10 @@ class _OtpScreenState extends State<OtpScreen> {
                       }),
                     ),
                   ),
-                  SizedBox(height: mqHeight * 0.04,),
+                  SizedBox(height: mqSize.height*0.04,),
 
                   Padding(
-                    padding: EdgeInsets.symmetric(horizontal: mqWidth * 0.05),
+                    padding: EdgeInsets.symmetric(horizontal: mqSize.width*0.05),
                     child: InkWell(
                       onTap: () {
                         Navigator.push(
@@ -158,7 +157,7 @@ class _OtpScreenState extends State<OtpScreen> {
                         );
                       },
                       child: Container(
-                        height: mqHeight * 0.06,
+                        height: mqSize.height*0.06,
                         width: double.infinity,
                         decoration: BoxDecoration(
                           gradient: LinearGradient(

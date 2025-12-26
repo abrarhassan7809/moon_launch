@@ -7,8 +7,7 @@ class VerifyIdentityScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final mqHeight = MediaQuery.of(context).size.height;
-    final mqWidth = MediaQuery.of(context).size.width;
+    final Size mqSize = MediaQuery.of(context).size;
 
     return Scaffold(
       resizeToAvoidBottomInset: true,
@@ -44,7 +43,7 @@ class VerifyIdentityScreen extends StatelessWidget {
 
             Image.asset(
               'assets/images/moon_launch_logo.png',
-              width: 100,
+              width: mqSize.width*0.25,
             ),
           ],
         ),
@@ -55,10 +54,10 @@ class VerifyIdentityScreen extends StatelessWidget {
           child: SingleChildScrollView(
             child: Column(
               children: [
-                Image.asset('assets/images/verification_image.png', height: 310,),
+                Image.asset('assets/images/verification_image.png', height: mqSize.height*0.45,),
 
                 Padding(
-                  padding: EdgeInsets.symmetric(horizontal: mqWidth * 0.07),
+                  padding: EdgeInsets.symmetric(horizontal: mqSize.width*0.07),
                   child: Row(
                     children: [
                       Text(
@@ -66,17 +65,17 @@ class VerifyIdentityScreen extends StatelessWidget {
                         style: TextStyle(
                           fontFamily: 'BernardMTCondensed',
                           fontWeight: FontWeight.w400,
-                          fontSize: 24,
+                          fontSize: mqSize.width*0.06,
                           color: Colors.white,
                         ),
                       ),
                     ],
                   ),
                 ),
-                SizedBox(height: mqHeight * 0.01,),
+                SizedBox(height: mqSize.height*0.01,),
 
                 Padding(
-                  padding: EdgeInsets.symmetric(horizontal: mqWidth * 0.07),
+                  padding: EdgeInsets.symmetric(horizontal: mqSize.width*0.07),
                   child: Row(
                     children: [
                       Text(
@@ -84,17 +83,17 @@ class VerifyIdentityScreen extends StatelessWidget {
                         style: TextStyle(
                           fontFamily: 'Benne',
                           fontWeight: FontWeight.w400,
-                          fontSize: 14,
+                          fontSize: mqSize.width*0.035,
                           color: Colors.white,
                         ),
                       ),
                     ],
                   ),
                 ),
-                SizedBox(height: mqHeight * 0.03,),
+                SizedBox(height: mqSize.height*0.03,),
 
                 Padding(
-                  padding: EdgeInsets.symmetric(horizontal: mqWidth * 0.07),
+                  padding: EdgeInsets.symmetric(horizontal: mqSize.width*0.07),
                   child: TextField(
                     decoration: InputDecoration(
                       hint: Text(
@@ -102,19 +101,19 @@ class VerifyIdentityScreen extends StatelessWidget {
                         style: TextStyle(fontFamily: 'Benne', fontSize: 14),
                       ),
                       border: OutlineInputBorder(
-                        borderRadius: BorderRadius.circular(mqWidth * 0.5),
+                        borderRadius: BorderRadius.circular(mqSize.width*0.5),
                       ),
                       focusedBorder: OutlineInputBorder(
-                        borderRadius: BorderRadius.circular(mqWidth * 0.5),
+                        borderRadius: BorderRadius.circular(mqSize.width*0.5),
                         borderSide: const BorderSide(color: Color(0xFFDB2519)),
                       ),
                     ),
                   ),
                 ),
-                SizedBox(height: mqHeight * 0.03,),
+                SizedBox(height: mqSize.height*0.03,),
 
                 Padding(
-                  padding: EdgeInsets.symmetric(horizontal: mqWidth * 0.05),
+                  padding: EdgeInsets.symmetric(horizontal: mqSize.width*0.05),
                   child: InkWell(
                     onTap: () {
                       Navigator.push(
@@ -123,7 +122,7 @@ class VerifyIdentityScreen extends StatelessWidget {
                       );
                     },
                     child: Container(
-                      height: mqHeight * 0.06,
+                      height: mqSize.height*0.06,
                       width: double.infinity,
                       decoration: BoxDecoration(
                         gradient: LinearGradient(

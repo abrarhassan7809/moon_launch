@@ -6,13 +6,16 @@ class RewardScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final mqHeight = MediaQuery.of(context).size.height;
-    final mqWidth = MediaQuery.of(context).size.width;
+    final Size mqSize = MediaQuery.of(context).size;
 
     return Scaffold(
+      extendBodyBehindAppBar: true,
       extendBody: true,
+
       appBar: AppBar(
         automaticallyImplyLeading: false,
+        backgroundColor: Colors.transparent,
+        surfaceTintColor: Colors.transparent,
 
         title: Padding(
           padding: EdgeInsets.only(top: 30),
@@ -24,12 +27,14 @@ class RewardScreen extends StatelessWidget {
                 style: TextStyle(
                   fontFamily: 'Benne',
                   fontWeight: FontWeight.w400,
-                  fontSize: 16,
+                  fontSize: mqSize.width*0.04,
                   color: Color(0xFFC9C9C9),
                 ),
               ),
 
-              Image.asset('assets/images/moon_launch_logo.png', width: 100,
+              Image.asset(
+                'assets/images/moon_launch_logo.png',
+                width: mqSize.width*0.25,
               ),
             ],
           ),
@@ -37,99 +42,100 @@ class RewardScreen extends StatelessWidget {
       ),
 
       body: ProfileBackground(
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            Padding(
-              padding: const EdgeInsets.only(left: 15),
-              child: RichText(
-                text: TextSpan(
-                  style: TextStyle(
-                    fontFamily: 'BernardMTCondensed',
-                    fontWeight: FontWeight.w400,
-                    color: Colors.white,
-                  ),
-                  children: [
-                    TextSpan(
-                      text: '\$0.00',
-                      style: TextStyle(fontSize: 30),
+        child: SafeArea(
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              Padding(
+                padding: const EdgeInsets.only(left: 15),
+                child: RichText(
+                  text: TextSpan(
+                    style: TextStyle(
+                      fontFamily: 'BernardMTCondensed',
+                      fontWeight: FontWeight.w400,
+                      color: Colors.white,
                     ),
-                    WidgetSpan(
-                      alignment: PlaceholderAlignment.baseline,
-                      baseline: TextBaseline.alphabetic,
-                      child: Padding(
-                        padding: const EdgeInsets.only(left: 4),
-                        child: Text(
-                          'usd',
-                          style: TextStyle(
-                            fontFamily: 'BernardMTCondensed',
-                            fontWeight: FontWeight.w400,
-                            fontSize: 14,
-                            color: Colors.white,
-                          ),
-                        ),
-                      ),
-                    ),
-                  ],
-                ),
-              ),
-            ),
-            SizedBox(height: mqHeight * 0.02,),
-
-            Image.asset('assets/images/reward_coin.png', width: mqWidth, height: 328,),
-
-            Text(
-              'Get Paid whenever your family, friends and their friends trade',
-              textAlign: TextAlign.center,
-              style: TextStyle(
-                fontFamily: 'Benne',
-                fontWeight: FontWeight.w400,
-                fontSize: 30,
-                color: Color(0xFFC9C9C9),
-              ),
-            ),
-            SizedBox(height: mqHeight * 0.02,),
-
-            Padding(
-              padding: EdgeInsets.symmetric(horizontal: mqWidth * 0.05),
-              child: InkWell(
-                onTap: () {},
-                child: Container(
-                  height: mqHeight * 0.06,
-                  width: double.infinity,
-                  decoration: BoxDecoration(
-                    gradient: LinearGradient(
-                      colors: [
-                        Color(0xFFFFE600),
-                        Color(0xFFDB2519),
-                      ],
-                      begin: Alignment.centerLeft,
-                      end: Alignment.centerRight,
-                    ),
-                    borderRadius: BorderRadius.circular(40),
-                  ),
-                  child: Row(
-                    mainAxisAlignment: MainAxisAlignment.center,
                     children: [
-                      Icon(Icons.add, color: Colors.white, size: 24,),
-                      SizedBox(width: 10,),
-
-                      Text(
-                        'Invite',
-                        style: TextStyle(
-                          letterSpacing: -0.3,
-                          fontFamily: 'BernardMTCondensed',
-                          fontWeight: FontWeight.w400,
-                          color: Colors.white,
-                          fontSize: 16,
+                      TextSpan(
+                        text: '\$0.00',
+                        style: TextStyle(fontSize: mqSize.width*0.08),
+                      ),
+                      WidgetSpan(
+                        alignment: PlaceholderAlignment.baseline,
+                        baseline: TextBaseline.alphabetic,
+                        child: Padding(
+                          padding: const EdgeInsets.only(left: 4),
+                          child: Text(
+                            'usd',
+                            style: TextStyle(
+                              fontFamily: 'BernardMTCondensed',
+                              fontWeight: FontWeight.w400,
+                              fontSize: 14,
+                              color: Colors.white,
+                            ),
+                          ),
                         ),
                       ),
                     ],
                   ),
                 ),
               ),
-            ),
-          ],
+              SizedBox(height: mqSize.height*0.02,),
+
+              Image.asset('assets/images/reward_coin.png', width: mqSize.width, height: 328,),
+
+              Text(
+                'Get Paid whenever your family, friends and their friends trade',
+                textAlign: TextAlign.center,
+                style: TextStyle(
+                  fontFamily: 'Benne',
+                  fontWeight: FontWeight.w400,
+                  fontSize: mqSize.width*0.07,
+                  color: Color(0xFFC9C9C9),
+                ),
+              ),
+              SizedBox(height: mqSize.height*0.02,),
+
+              Padding(
+                padding: EdgeInsets.symmetric(horizontal: mqSize.width*0.05),
+                child: InkWell(
+                  onTap: () {},
+                  child: Container(
+                    height: mqSize.height*0.06,
+                    width: double.infinity,
+                    decoration: BoxDecoration(
+                      gradient: LinearGradient(
+                        colors: [
+                          Color(0xFFFFE600),
+                          Color(0xFFDB2519),
+                        ],
+                        begin: Alignment.centerLeft,
+                        end: Alignment.centerRight,
+                      ),
+                      borderRadius: BorderRadius.circular(50),
+                    ),
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        Icon(Icons.add, color: Colors.white, size: 24,),
+                        SizedBox(width: 5,),
+
+                        Text(
+                          'Invite',
+                          style: TextStyle(
+                            fontFamily: 'BernardMTCondensed',
+                            fontWeight: FontWeight.w400,
+                            color: Colors.white,
+                            fontSize: 16,
+                          ),
+                        ),
+                      ],
+                    ),
+                  ),
+                ),
+              ),
+            ],
+          ),
         ),
       ),
     );

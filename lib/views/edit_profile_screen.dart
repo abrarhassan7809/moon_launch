@@ -1,4 +1,6 @@
+import 'dart:io';
 import 'package:flutter/material.dart';
+import 'package:image_picker/image_picker.dart';
 import 'package:moon_launch/widgets/profile_background.dart';
 
 class EditProfileScreen extends StatefulWidget {
@@ -9,10 +11,25 @@ class EditProfileScreen extends StatefulWidget {
 }
 
 class _EditProfileScreenState extends State<EditProfileScreen> {
+  File? _profileImage;
+  final ImagePicker _picker = ImagePicker();
+
+  Future<void> _pickImage() async {
+    final XFile? pickedFile = await _picker.pickImage(
+      source: ImageSource.gallery,
+      imageQuality: 70,
+    );
+
+    if (pickedFile != null) {
+      setState(() {
+        _profileImage = File(pickedFile.path);
+      });
+    }
+  }
+
   @override
   Widget build(BuildContext context) {
-    final mqHeight = MediaQuery.of(context).size.height;
-    final mqWidth = MediaQuery.of(context).size.width;
+    final Size mqSize = MediaQuery.of(context).size;
 
     return Scaffold(
       resizeToAvoidBottomInset: true,
@@ -51,7 +68,7 @@ class _EditProfileScreenState extends State<EditProfileScreen> {
 
             Image.asset(
               'assets/images/moon_launch_logo.png',
-              width: 100,
+              width: mqSize.width*0.25,
             ),
           ],
         ),
@@ -71,19 +88,19 @@ class _EditProfileScreenState extends State<EditProfileScreen> {
                       style: TextStyle(
                         fontFamily: 'BernardMTCondensed',
                         fontWeight: FontWeight.w400,
-                        fontSize: 24,
+                        fontSize: mqSize.width*0.06,
                         color: Colors.white,
                       ),
                     ),
                   ],
                 ),
-                SizedBox(height: mqHeight*0.1,),
+                SizedBox(height: mqSize.height*0.1,),
 
                 Stack(
                   children: [
                     Container(
-                      width: 110,
-                      height: 110,
+                      width: mqSize.height*0.165,
+                      height: mqSize.height*0.165,
                       decoration: BoxDecoration(
                         gradient: const LinearGradient(
                           colors: [
@@ -100,8 +117,18 @@ class _EditProfileScreenState extends State<EditProfileScreen> {
                             color: Colors.black.withOpacity(0.7),
                             borderRadius: BorderRadius.circular(98),
                           ),
-                          child: Image.asset(
-                            'assets/images/profile_image.png',
+                          child: ClipOval(
+                            child: _profileImage != null
+                                ? Image.file(
+                              _profileImage!,
+                              width: double.infinity,
+                              height: double.infinity,
+                              fit: BoxFit.cover,
+                            )
+                                : Image.asset(
+                              'assets/images/profile_image.png',
+                              fit: BoxFit.cover,
+                            ),
                           ),
                         ),
                       ),
@@ -110,27 +137,34 @@ class _EditProfileScreenState extends State<EditProfileScreen> {
                     Positioned(
                       bottom: 0,
                       right: 10,
-                      child: Container(
-                        height: 30,
-                        width: 30,
-                        decoration: BoxDecoration(
-                          gradient: LinearGradient(
-                            colors: [
-                              Color(0xFFFFE600),
-                              Color(0xFFDB2519),
-                            ],
+                      child: InkWell(
+                        onTap: _pickImage,
+                        child: Container(
+                          height: 30,
+                          width: 30,
+                          decoration: BoxDecoration(
+                            gradient: const LinearGradient(
+                              colors: [
+                                Color(0xFFFFE600),
+                                Color(0xFFDB2519),
+                              ],
+                            ),
+                            borderRadius: BorderRadius.circular(50),
                           ),
-                          borderRadius: BorderRadius.circular(50),
+                          child: const Icon(
+                            Icons.camera_alt,
+                            color: Colors.white,
+                            size: 18,
+                          ),
                         ),
-                        child: Icon(Icons.camera_alt, color: Colors.white, size: 18,),
                       ),
                     ),
                   ],
                 ),
-                SizedBox(height: mqHeight*0.05,),
+                SizedBox(height: mqSize.height*0.05,),
 
                 Padding(
-                  padding: EdgeInsets.symmetric(horizontal: mqWidth * 0.07),
+                  padding: EdgeInsets.symmetric(horizontal: mqSize.width*0.05),
                   child: TextField(
                     decoration: InputDecoration(
                       hint: Text(
@@ -138,19 +172,19 @@ class _EditProfileScreenState extends State<EditProfileScreen> {
                         style: TextStyle(fontFamily: 'Benne', fontSize: 14),
                       ),
                       border: OutlineInputBorder(
-                        borderRadius: BorderRadius.circular(mqWidth * 0.5),
+                        borderRadius: BorderRadius.circular(mqSize.width*0.5),
                       ),
                       focusedBorder: OutlineInputBorder(
-                        borderRadius: BorderRadius.circular(mqWidth * 0.5),
+                        borderRadius: BorderRadius.circular(mqSize.width*0.5),
                         borderSide: const BorderSide(color: Color(0xFFDB2519)),
                       ),
                     ),
                   ),
                 ),
-                SizedBox(height: mqHeight * 0.01,),
+                SizedBox(height: mqSize.height*0.01,),
 
                 Padding(
-                  padding: EdgeInsets.symmetric(horizontal: mqWidth * 0.07),
+                  padding: EdgeInsets.symmetric(horizontal: mqSize.width*0.05),
                   child: TextField(
                     decoration: InputDecoration(
                       hint: Text(
@@ -158,23 +192,23 @@ class _EditProfileScreenState extends State<EditProfileScreen> {
                         style: TextStyle(fontFamily: 'Benne', fontSize: 14),
                       ),
                       border: OutlineInputBorder(
-                        borderRadius: BorderRadius.circular(mqWidth * 0.5),
+                        borderRadius: BorderRadius.circular(mqSize.width*0.5),
                       ),
                       focusedBorder: OutlineInputBorder(
-                        borderRadius: BorderRadius.circular(mqWidth * 0.5),
+                        borderRadius: BorderRadius.circular(mqSize.width*0.5),
                         borderSide: const BorderSide(color: Color(0xFFDB2519)),
                       ),
                     ),
                   ),
                 ),
-                SizedBox(height: mqHeight * 0.05,),
+                SizedBox(height: mqSize.height*0.05,),
 
                 InkWell(
                   onTap: () {},
                   child: Padding(
-                    padding: EdgeInsets.symmetric(horizontal: mqWidth * 0.05),
+                    padding: EdgeInsets.symmetric(horizontal: mqSize.width*0.05),
                     child: Container(
-                      height: mqHeight * 0.06,
+                      height: mqSize.height*0.06,
                       width: double.infinity,
                       decoration: BoxDecoration(
                         gradient: LinearGradient(

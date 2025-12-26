@@ -11,8 +11,7 @@ class ActivityScreen extends StatefulWidget {
 class _ActivityScreenState extends State<ActivityScreen> {
   @override
   Widget build(BuildContext context) {
-    final mqHeight = MediaQuery.of(context).size.height;
-    final mqWidth = MediaQuery.of(context).size.width;
+    final Size mqSize = MediaQuery.of(context).size;
 
     return Scaffold(
       resizeToAvoidBottomInset: true,
@@ -48,7 +47,7 @@ class _ActivityScreenState extends State<ActivityScreen> {
 
             Image.asset(
               'assets/images/moon_launch_logo.png',
-              width: 100,
+              width: mqSize.width*0.25,
             ),
           ],
         ),
@@ -57,7 +56,7 @@ class _ActivityScreenState extends State<ActivityScreen> {
       body: AppBackground(
         child: SafeArea(
           child: Padding(
-            padding: EdgeInsets.symmetric(vertical: 10, horizontal: mqWidth * 0.04),
+            padding: EdgeInsets.symmetric(vertical: 10, horizontal: mqSize.width*0.04),
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
@@ -66,22 +65,22 @@ class _ActivityScreenState extends State<ActivityScreen> {
                   style: TextStyle(
                     fontFamily: 'BernardMTCondensed',
                     fontWeight: FontWeight.w400,
-                    fontSize: 24,
+                    fontSize: mqSize.width*0.075,
                     color: Colors.white,
                   ),
                 ),
-                SizedBox(height: mqHeight*0.04,),
+                SizedBox(height: mqSize.height*0.04,),
 
                 Text(
                   'Spotlight',
                   style: TextStyle(
                     fontFamily: 'Benne',
                     fontWeight: FontWeight.w400,
-                    fontSize: 18,
+                    fontSize: mqSize.width*0.05,
                     color: Color(0xFFC9C9C9),
                   ),
                 ),
-                SizedBox(height: mqHeight*0.03,),
+                SizedBox(height: mqSize.height*0.03,),
 
                 Expanded(
                   child: ListView.builder(
@@ -95,7 +94,7 @@ class _ActivityScreenState extends State<ActivityScreen> {
                         child: Row(
                           children: [
                             Image.asset('assets/images/bit_coin.png'),
-                            SizedBox(width: mqWidth * 0.02),
+                            SizedBox(width: mqSize.width*0.02),
 
                             Expanded(
                               child: Column(
