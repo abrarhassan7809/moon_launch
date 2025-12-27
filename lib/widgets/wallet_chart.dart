@@ -148,7 +148,7 @@ class _WalletChartPainter extends CustomPainter {
         ..shader = LinearGradient(
           begin: Alignment.topCenter,
           end: Alignment.bottomCenter,
-          colors: [Colors.blue.withOpacity(0.35), Colors.transparent],
+          colors: [Colors.blue.withOpacity(0.6), Colors.blue.withOpacity(0.05)],
         ).createShader(Rect.fromLTWH(0, 0, size.width, size.height)),
     );
 

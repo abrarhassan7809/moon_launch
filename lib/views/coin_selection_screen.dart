@@ -82,6 +82,7 @@ class CoinSelectionScreen extends StatelessWidget {
                 child: Column(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
+                    /// Row 1
                     Row(
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
@@ -96,6 +97,7 @@ class CoinSelectionScreen extends StatelessWidget {
                             ),
                             color: Color(0xFFDB2519).withOpacity(0.8),
                           ),
+                          child: Image.asset('assets/images/mini_rocket.png',),
                         ),
 
                         Container(
@@ -109,6 +111,7 @@ class CoinSelectionScreen extends StatelessWidget {
                             ),
                             color: Colors.lightGreen.withOpacity(0.8),
                           ),
+                          child: Image.asset('assets/images/mini_rocket.png',),
                         ),
 
                         Container(
@@ -122,6 +125,7 @@ class CoinSelectionScreen extends StatelessWidget {
                             ),
                             color: Color(0xFFFFE600).withOpacity(0.8),
                           ),
+                          child: Image.asset('assets/images/mini_rocket.png',),
                         ),
 
                         Container(
@@ -135,11 +139,13 @@ class CoinSelectionScreen extends StatelessWidget {
                             ),
                             color: Colors.pink.withOpacity(0.8),
                           ),
+                          child: Image.asset('assets/images/mini_rocket.png',),
                         ),
                       ],
                     ),
                     SizedBox(height: 10,),
 
+                    /// Row 2
                     Row(
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
@@ -154,6 +160,7 @@ class CoinSelectionScreen extends StatelessWidget {
                             ),
                             color: Colors.brown.withOpacity(0.8),
                           ),
+                          child: Image.asset('assets/images/mini_rocket.png',),
                         ),
 
                         Container(
@@ -167,6 +174,7 @@ class CoinSelectionScreen extends StatelessWidget {
                             ),
                             color: Colors.lightGreen.withOpacity(0.8),
                           ),
+                          child: Image.asset('assets/images/mini_rocket.png',),
                         ),
 
                         Container(
@@ -180,6 +188,7 @@ class CoinSelectionScreen extends StatelessWidget {
                             ),
                             color: Colors.white.withOpacity(0.8),
                           ),
+                          child: Image.asset('assets/images/mini_rocket.png',),
                         ),
 
                         Container(
@@ -193,11 +202,13 @@ class CoinSelectionScreen extends StatelessWidget {
                             ),
                             color: Colors.green.withOpacity(0.8),
                           ),
+                          child: Image.asset('assets/images/mini_rocket.png',),
                         ),
                       ],
                     ),
                     SizedBox(height: 10,),
 
+                    /// Row 3
                     Row(
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
@@ -212,6 +223,7 @@ class CoinSelectionScreen extends StatelessWidget {
                             ),
                             color: Colors.blue.withOpacity(0.8),
                           ),
+                          child: Image.asset('assets/images/mini_rocket.png',),
                         ),
 
                         Container(
@@ -225,6 +237,7 @@ class CoinSelectionScreen extends StatelessWidget {
                             ),
                             color: Colors.deepOrangeAccent.withOpacity(0.8),
                           ),
+                          child: Image.asset('assets/images/mini_rocket.png',),
                         ),
 
                         Container(
@@ -238,6 +251,7 @@ class CoinSelectionScreen extends StatelessWidget {
                             ),
                             color: Colors.lightBlue.withOpacity(0.8),
                           ),
+                          child: Image.asset('assets/images/mini_rocket.png',),
                         ),
 
                         Container(
@@ -251,11 +265,13 @@ class CoinSelectionScreen extends StatelessWidget {
                             ),
                             color: Colors.brown.withOpacity(0.8),
                           ),
+                          child: Image.asset('assets/images/mini_rocket.png',),
                         ),
                       ],
                     ),
                     SizedBox(height: 10,),
 
+                    /// Row 4
                     Row(
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
@@ -270,6 +286,7 @@ class CoinSelectionScreen extends StatelessWidget {
                             ),
                             color: Colors.blueAccent.withOpacity(0.8),
                           ),
+                          child: Image.asset('assets/images/mini_rocket.png',),
                         ),
 
                         Container(
@@ -283,6 +300,7 @@ class CoinSelectionScreen extends StatelessWidget {
                             ),
                             color: Colors.yellowAccent.withOpacity(0.8),
                           ),
+                          child: Image.asset('assets/images/mini_rocket.png',),
                         ),
 
                         Container(
@@ -296,6 +314,7 @@ class CoinSelectionScreen extends StatelessWidget {
                             ),
                             color: Colors.grey.withOpacity(0.8),
                           ),
+                          child: Image.asset('assets/images/mini_rocket.png',),
                         ),
 
                         Container(
@@ -309,11 +328,13 @@ class CoinSelectionScreen extends StatelessWidget {
                             ),
                             color: Colors.redAccent.withOpacity(0.8),
                           ),
+                          child: Image.asset('assets/images/mini_rocket.png',),
                         ),
                       ],
                     ),
                     SizedBox(height: 10,),
 
+                    /// Row 5
                     Row(
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
@@ -328,6 +349,7 @@ class CoinSelectionScreen extends StatelessWidget {
                             ),
                             color: Colors.redAccent.withOpacity(0.8),
                           ),
+                          child: Image.asset('assets/images/mini_rocket.png',),
                         ),
 
                         Container(
@@ -341,6 +363,7 @@ class CoinSelectionScreen extends StatelessWidget {
                             ),
                             color: Colors.white54.withOpacity(0.8),
                           ),
+                          child: Image.asset('assets/images/mini_rocket.png',),
                         ),
 
                         Container(
@@ -354,6 +377,7 @@ class CoinSelectionScreen extends StatelessWidget {
                             ),
                             color: Colors.teal.withOpacity(0.8),
                           ),
+                          child: Image.asset('assets/images/mini_rocket.png',),
                         ),
 
                         Container(
@@ -367,10 +391,10 @@ class CoinSelectionScreen extends StatelessWidget {
                             ),
                             color: Color(0xFFFFE600).withOpacity(0.8),
                           ),
+                          child: Image.asset('assets/images/mini_rocket.png',),
                         ),
                       ],
                     ),
-                    SizedBox(height: 10,),
                   ],
                 ),
               ),
