@@ -53,7 +53,7 @@ class _OtpScreenState extends State<OtpScreen> {
 
             Image.asset(
               'assets/images/moon_launch_logo.png',
-              width: mqSize.width*0.25,
+              width: mqSize.width*0.3,
             ),
           ],
         ),
@@ -75,7 +75,7 @@ class _OtpScreenState extends State<OtpScreen> {
                           style: TextStyle(
                             fontFamily: 'BernardMTCondensed',
                             fontWeight: FontWeight.w400,
-                            fontSize: mqSize.width*0.06,
+                            fontSize: mqSize.width*0.08,
                             color: Colors.white,
                           ),
                         ),
@@ -93,7 +93,7 @@ class _OtpScreenState extends State<OtpScreen> {
                           style: TextStyle(
                             fontFamily: 'Benne',
                             fontWeight: FontWeight.w400,
-                            fontSize: mqSize.width*0.035,
+                            fontSize: mqSize.width*0.04,
                             color: Colors.white,
                           ),
                         ),
@@ -126,11 +126,11 @@ class _OtpScreenState extends State<OtpScreen> {
                               fillColor: Color(0xFFFFE600).withOpacity(0.1),
                               enabledBorder: OutlineInputBorder(
                                 borderRadius: BorderRadius.circular(15),
-                                borderSide: BorderSide(color: Color(0xFFFFE600).withOpacity(0.1)),
+                                borderSide: BorderSide(color: Color(0xFFFFE600).withOpacity(0.3)),
                               ),
                               focusedBorder: OutlineInputBorder(
                                 borderRadius: BorderRadius.circular(15),
-                                borderSide: BorderSide(color: Color(0xFFFFE600).withOpacity(0.6)),
+                                borderSide: BorderSide(color: Color(0xFFFFE600).withOpacity(0.7)),
                               ),
                             ),
                             onChanged: (value) {
@@ -157,7 +157,7 @@ class _OtpScreenState extends State<OtpScreen> {
                         );
                       },
                       child: Container(
-                        height: mqSize.height*0.06,
+                        height: mqSize.height*0.07,
                         width: double.infinity,
                         decoration: BoxDecoration(
                           gradient: LinearGradient(
@@ -174,11 +174,10 @@ class _OtpScreenState extends State<OtpScreen> {
                           child: Text(
                             'Send Code',
                             style: TextStyle(
-                              letterSpacing: -0.3,
                               fontFamily: 'BernardMTCondensed',
                               fontWeight: FontWeight.w400,
                               color: Colors.white,
-                              fontSize: 16,
+                              fontSize: mqSize.width*0.06,
                             ),
                           ),
                         ),

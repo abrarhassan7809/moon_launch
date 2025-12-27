@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:moon_launch/views/home_screen.dart';
+import 'package:moon_launch/views/reward_screen.dart';
 import 'package:moon_launch/views/token_screen.dart';
 import 'package:moon_launch/widgets/custom_bottom_navbar.dart';
 import '../views/profile_screen.dart';
@@ -9,6 +10,7 @@ import 'notifiers.dart';
 List<Widget> pages = [
   HomeScreen(),    // Home page
   WalletScreen(),  // Wallet page
+  RewardScreen(),  // Reward page
   TokenScreen(),   // Token page
   ProfileScreen(), // Profile page
 ];

@@ -52,7 +52,10 @@ class _SplashScreenState extends State<SplashScreen>
     final Size mqSize = MediaQuery.of(context).size;
 
     return Scaffold(
-      backgroundColor: Colors.black,
+      extendBodyBehindAppBar: true,
+      backgroundColor: Colors.transparent,
+      extendBody: true,
+
       body: LayoutBuilder(
         builder: (context, constraints) {
           return Stack(
@@ -69,8 +72,8 @@ class _SplashScreenState extends State<SplashScreen>
                 child: ScaleTransition(
                   scale: _scaleAnimation,
                   child: SizedBox(
-                    width: mqSize.width*0.55,
-                    height: mqSize.width*0.55,
+                    width: mqSize.width*0.8,
+                    height: mqSize.width*0.8,
                     child: Image.asset(
                       'assets/images/moon_launch_logo.png',
                       fit: BoxFit.contain,

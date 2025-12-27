@@ -47,7 +47,7 @@ class _ActivityScreenState extends State<ActivityScreen> {
 
             Image.asset(
               'assets/images/moon_launch_logo.png',
-              width: mqSize.width*0.25,
+              width: mqSize.width*0.3,
             ),
           ],
         ),
@@ -65,11 +65,11 @@ class _ActivityScreenState extends State<ActivityScreen> {
                   style: TextStyle(
                     fontFamily: 'BernardMTCondensed',
                     fontWeight: FontWeight.w400,
-                    fontSize: mqSize.width*0.075,
+                    fontSize: mqSize.width*0.08,
                     color: Colors.white,
                   ),
                 ),
-                SizedBox(height: mqSize.height*0.04,),
+                SizedBox(height: mqSize.height*0.03,),
 
                 Text(
                   'Spotlight',

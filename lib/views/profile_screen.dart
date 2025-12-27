@@ -2,6 +2,10 @@ import 'package:flutter/material.dart';
 import 'package:moon_launch/views/edit_profile_screen.dart';
 import 'package:moon_launch/widgets/profile_background.dart';
 
+import '../auth_screens/login_screen.dart';
+import '../widgets/confirm_dialog.dart';
+import '../widgets/notifiers.dart';
+
 class ProfileScreen extends StatefulWidget {
   const ProfileScreen({super.key});
 
@@ -10,7 +14,7 @@ class ProfileScreen extends StatefulWidget {
 }
 
 class _ProfileScreenState extends State<ProfileScreen> {
-  bool startNotification = false;
+  bool startNotification = true;
 
   @override
   Widget build(BuildContext context) {
@@ -29,8 +33,8 @@ class _ProfileScreenState extends State<ProfileScreen> {
                   spacing: 10,
                   children: [
                     Container(
-                      width: mqSize.height*0.16,
-                      height: mqSize.height*0.16,
+                      width: mqSize.height*0.15,
+                      height: mqSize.height*0.15,
                       decoration: BoxDecoration(
                         gradient: const LinearGradient(
                           colors: [
@@ -42,13 +46,10 @@ class _ProfileScreenState extends State<ProfileScreen> {
                       ),
                       child: Padding(
                         padding: const EdgeInsets.all(2),
-                        child: Container(
-                          decoration: BoxDecoration(
-                            color: Colors.black.withOpacity(0.7),
-                            borderRadius: BorderRadius.circular(98),
-                          ),
+                        child: ClipRRect(
+                          borderRadius: BorderRadius.circular(98),
                           child: Image.asset(
-                            'assets/images/profile_image.png',
+                            'assets/images/profile_image2.png',
                           ),
                         ),
                       ),
@@ -59,7 +60,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
                       style: TextStyle(
                         fontFamily: 'BernardMTCondensed',
                         fontWeight: FontWeight.w400,
-                        fontSize: mqSize.width*0.042,
+                        fontSize: mqSize.width*0.045,
                         color: Color(0xFFC9C9C9),
                       ),
                     ),
@@ -69,13 +70,13 @@ class _ProfileScreenState extends State<ProfileScreen> {
                       style: TextStyle(
                         fontFamily: 'Benne',
                         fontWeight: FontWeight.w400,
-                        fontSize: mqSize.width*0.042,
+                        fontSize: mqSize.width*0.045,
                         color: Color(0xFFC9C9C9),
                       ),
                     ),
                   ],
                 ),
-                SizedBox(height: mqSize.height*0.03,),
+                SizedBox(height: mqSize.height*0.02,),
 
                 Column(
                   children: [
@@ -86,7 +87,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
                           fontFamily: 'Benne',
                           fontWeight: FontWeight.w400,
                           color: Colors.white,
-                          fontSize: mqSize.width*0.042,
+                          fontSize: mqSize.width*0.045,
                         ),
                       ),
                       value: startNotification,
@@ -118,7 +119,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
                               style: TextStyle(
                                 fontFamily: 'Benne',
                                 fontWeight: FontWeight.w400,
-                                fontSize: mqSize.width*0.042,
+                                fontSize: mqSize.width*0.045,
                                 color: Colors.white,
                               ),
                             ),
@@ -145,7 +146,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
                               style: TextStyle(
                                 fontFamily: 'Benne',
                                 fontWeight: FontWeight.w400,
-                                fontSize: mqSize.width*0.042,
+                                fontSize: mqSize.width*0.045,
                                 color: Colors.white,
                               ),
                             ),
@@ -172,7 +173,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
                               style: TextStyle(
                                 fontFamily: 'Benne',
                                 fontWeight: FontWeight.w400,
-                                fontSize: mqSize.width*0.042,
+                                fontSize: mqSize.width*0.045,
                                 color: Colors.white,
                               ),
                             ),
@@ -192,7 +193,17 @@ class _ProfileScreenState extends State<ProfileScreen> {
 
                 // logout profile buttons
                 InkWell(
-                  onTap: () {},
+                  onTap: () {
+                    AppDialogs.showConfirmDialog(
+                      context: context,
+                      title: 'Delete Account',
+                      message: 'This action cannot be undone. Are you sure?',
+                      confirmText: 'Delete',
+                      onConfirm: () {
+                        _logOut();
+                      },
+                    );
+                  },
                   child: Padding(
                     padding: EdgeInsets.symmetric(horizontal: mqSize.width*0.05),
                     child: Container(
@@ -205,17 +216,16 @@ class _ProfileScreenState extends State<ProfileScreen> {
                       child: Row(
                         mainAxisAlignment: MainAxisAlignment.center,
                         children: [
-                          Icon(Icons.delete, color: Color(0xFFDB2519), size: 24,),
+                          Icon(Icons.delete, color: Color(0xFFDB2519), size: mqSize.width*0.07,),
                           SizedBox(width: 10,),
 
                           Text(
                             'Delete Account',
                             style: TextStyle(
-                              letterSpacing: -0.3,
                               fontFamily: 'BernardMTCondensed',
                               fontWeight: FontWeight.w400,
                               color: Color(0xFFDB2519),
-                              fontSize: 16,
+                              fontSize: mqSize.width*0.05,
                             ),
                           ),
                         ],
@@ -226,11 +236,20 @@ class _ProfileScreenState extends State<ProfileScreen> {
                 SizedBox(height: mqSize.height*0.02,),
 
                 InkWell(
-                  onTap: () {},
+                  onTap: () {
+                    AppDialogs.showConfirmDialog(
+                      context: context,
+                      title: 'Logout',
+                      message: 'Are you sure you want to logout?',
+                      onConfirm: () {
+                        _logOut();
+                      },
+                    );
+                  },
                   child: Padding(
                     padding: EdgeInsets.symmetric(horizontal: mqSize.width*0.05),
                     child: Container(
-                      height: mqSize.height*0.06,
+                      height: mqSize.height*0.07,
                       width: double.infinity,
                       decoration: BoxDecoration(
                         gradient: LinearGradient(
@@ -246,17 +265,16 @@ class _ProfileScreenState extends State<ProfileScreen> {
                       child: Row(
                         mainAxisAlignment: MainAxisAlignment.center,
                         children: [
-                          Icon(Icons.add, color: Colors.white, size: 24,),
+                          Icon(Icons.add, color: Colors.white, size: mqSize.width*0.07,),
                           SizedBox(width: 10,),
 
                           Text(
                             'Logout',
                             style: TextStyle(
-                              letterSpacing: -0.3,
                               fontFamily: 'BernardMTCondensed',
                               fontWeight: FontWeight.w400,
                               color: Colors.white,
-                              fontSize: 16,
+                              fontSize: mqSize.width*0.06,
                             ),
                           ),
                         ],
@@ -269,6 +287,14 @@ class _ProfileScreenState extends State<ProfileScreen> {
           ),
         ),
       ),
+    );
+  }
+
+  void _logOut() {
+    selectedPageNotifier.value = 0;
+    Navigator.pushReplacement(
+      context,
+      MaterialPageRoute(builder: (_) => const LoginScreen()),
     );
   }
 }

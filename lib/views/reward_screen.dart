@@ -27,14 +27,14 @@ class RewardScreen extends StatelessWidget {
                 style: TextStyle(
                   fontFamily: 'Benne',
                   fontWeight: FontWeight.w400,
-                  fontSize: mqSize.width*0.04,
+                  fontSize: mqSize.width*0.045,
                   color: Color(0xFFC9C9C9),
                 ),
               ),
 
               Image.asset(
                 'assets/images/moon_launch_logo.png',
-                width: mqSize.width*0.25,
+                width: mqSize.width*0.3,
               ),
             ],
           ),
@@ -58,21 +58,18 @@ class RewardScreen extends StatelessWidget {
                     children: [
                       TextSpan(
                         text: '\$0.00',
-                        style: TextStyle(fontSize: mqSize.width*0.08),
+                        style: TextStyle(fontSize: mqSize.width*0.09),
                       ),
                       WidgetSpan(
                         alignment: PlaceholderAlignment.baseline,
                         baseline: TextBaseline.alphabetic,
-                        child: Padding(
-                          padding: const EdgeInsets.only(left: 4),
-                          child: Text(
-                            'usd',
-                            style: TextStyle(
-                              fontFamily: 'BernardMTCondensed',
-                              fontWeight: FontWeight.w400,
-                              fontSize: 14,
-                              color: Colors.white,
-                            ),
+                        child: Text(
+                          'usd',
+                          style: TextStyle(
+                            fontFamily: 'BernardMTCondensed',
+                            fontWeight: FontWeight.w400,
+                            fontSize: mqSize.width*0.04,
+                            color: Colors.white,
                           ),
                         ),
                       ),
@@ -80,9 +77,8 @@ class RewardScreen extends StatelessWidget {
                   ),
                 ),
               ),
-              SizedBox(height: mqSize.height*0.02,),
 
-              Image.asset('assets/images/reward_coin.png', width: mqSize.width, height: 328,),
+              Image.asset('assets/images/reward_coin.png', height: mqSize.height*0.45,),
 
               Text(
                 'Get Paid whenever your family, friends and their friends trade',
@@ -94,14 +90,14 @@ class RewardScreen extends StatelessWidget {
                   color: Color(0xFFC9C9C9),
                 ),
               ),
-              SizedBox(height: mqSize.height*0.02,),
+              SizedBox(height: mqSize.height*0.03,),
 
               Padding(
                 padding: EdgeInsets.symmetric(horizontal: mqSize.width*0.05),
                 child: InkWell(
                   onTap: () {},
                   child: Container(
-                    height: mqSize.height*0.06,
+                    height: mqSize.height*0.07,
                     width: double.infinity,
                     decoration: BoxDecoration(
                       gradient: LinearGradient(
@@ -117,7 +113,7 @@ class RewardScreen extends StatelessWidget {
                     child: Row(
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: [
-                        Icon(Icons.add, color: Colors.white, size: 24,),
+                        Icon(Icons.add, color: Colors.white, size: mqSize.width*0.08,),
                         SizedBox(width: 5,),
 
                         Text(
@@ -126,7 +122,7 @@ class RewardScreen extends StatelessWidget {
                             fontFamily: 'BernardMTCondensed',
                             fontWeight: FontWeight.w400,
                             color: Colors.white,
-                            fontSize: 16,
+                            fontSize: mqSize.width*0.06,
                           ),
                         ),
                       ],

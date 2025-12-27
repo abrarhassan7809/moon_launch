@@ -50,7 +50,7 @@ class _ChangePasswordScreenState extends State<ChangePasswordScreen> {
 
             Image.asset(
               'assets/images/moon_launch_logo.png',
-              width: mqSize.width*0.25,
+              width: mqSize.width*0.3,
             ),
           ],
         ),
@@ -72,7 +72,7 @@ class _ChangePasswordScreenState extends State<ChangePasswordScreen> {
                         style: TextStyle(
                           fontFamily: 'BernardMTCondensed',
                           fontWeight: FontWeight.w400,
-                          fontSize: mqSize.width*0.06,
+                          fontSize: mqSize.width*0.08,
                           color: Colors.white,
                         ),
                       ),
@@ -90,14 +90,14 @@ class _ChangePasswordScreenState extends State<ChangePasswordScreen> {
                         style: TextStyle(
                           fontFamily: 'Benne',
                           fontWeight: FontWeight.w400,
-                          fontSize: mqSize.width*0.035,
+                          fontSize: mqSize.width*0.04,
                           color: Colors.white,
                         ),
                       ),
                     ],
                   ),
                 ),
-                SizedBox(height: mqSize.height*0.03,),
+                SizedBox(height: mqSize.height*0.025,),
 
                 Padding(
                   padding: EdgeInsets.symmetric(horizontal: mqSize.width*0.05),
@@ -106,7 +106,7 @@ class _ChangePasswordScreenState extends State<ChangePasswordScreen> {
                     decoration: InputDecoration(
                       hint: Text(
                         "New Password",
-                        style: TextStyle(fontFamily: 'Benne', fontSize: 14),
+                        style: TextStyle(fontFamily: 'Benne', fontSize: 15),
                       ),
                       border: OutlineInputBorder(
                         borderRadius: BorderRadius.circular(mqSize.width*0.5),
@@ -138,7 +138,7 @@ class _ChangePasswordScreenState extends State<ChangePasswordScreen> {
                     decoration: InputDecoration(
                       hint: Text(
                         "Confirm New Password",
-                        style: TextStyle(fontFamily: 'Benne', fontSize: 14),
+                        style: TextStyle(fontFamily: 'Benne', fontSize: 15),
                       ),
                       border: OutlineInputBorder(
                         borderRadius: BorderRadius.circular(mqSize.width*0.5),

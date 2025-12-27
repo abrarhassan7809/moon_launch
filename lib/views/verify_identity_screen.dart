@@ -43,7 +43,7 @@ class VerifyIdentityScreen extends StatelessWidget {
 
             Image.asset(
               'assets/images/moon_launch_logo.png',
-              width: mqSize.width*0.25,
+              width: mqSize.width*0.3,
             ),
           ],
         ),
@@ -65,7 +65,7 @@ class VerifyIdentityScreen extends StatelessWidget {
                         style: TextStyle(
                           fontFamily: 'BernardMTCondensed',
                           fontWeight: FontWeight.w400,
-                          fontSize: mqSize.width*0.06,
+                          fontSize: mqSize.width*0.08,
                           color: Colors.white,
                         ),
                       ),
@@ -83,7 +83,7 @@ class VerifyIdentityScreen extends StatelessWidget {
                         style: TextStyle(
                           fontFamily: 'Benne',
                           fontWeight: FontWeight.w400,
-                          fontSize: mqSize.width*0.035,
+                          fontSize: mqSize.width*0.045,
                           color: Colors.white,
                         ),
                       ),
@@ -98,7 +98,7 @@ class VerifyIdentityScreen extends StatelessWidget {
                     decoration: InputDecoration(
                       hint: Text(
                         "Email Address",
-                        style: TextStyle(fontFamily: 'Benne', fontSize: 14),
+                        style: TextStyle(fontFamily: 'Benne', fontSize: 15),
                       ),
                       border: OutlineInputBorder(
                         borderRadius: BorderRadius.circular(mqSize.width*0.5),
@@ -122,7 +122,7 @@ class VerifyIdentityScreen extends StatelessWidget {
                       );
                     },
                     child: Container(
-                      height: mqSize.height*0.06,
+                      height: mqSize.height*0.07,
                       width: double.infinity,
                       decoration: BoxDecoration(
                         gradient: LinearGradient(
@@ -133,17 +133,16 @@ class VerifyIdentityScreen extends StatelessWidget {
                           begin: Alignment.centerLeft,
                           end: Alignment.centerRight,
                         ),
-                        borderRadius: BorderRadius.circular(40),
+                        borderRadius: BorderRadius.circular(50),
                       ),
                       child: Center(
                         child: Text(
                           'Send Code',
                           style: TextStyle(
-                            letterSpacing: -0.3,
                             fontFamily: 'BernardMTCondensed',
                             fontWeight: FontWeight.w400,
                             color: Colors.white,
-                            fontSize: 16,
+                            fontSize: mqSize.width*0.06,
                           ),
                         ),
                       ),

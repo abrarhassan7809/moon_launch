@@ -41,7 +41,10 @@ class _GuidScreenState extends State<GuidScreen> {
     final Size mqSize = MediaQuery.of(context).size;
 
     return Scaffold(
-      backgroundColor: Colors.black,
+      extendBodyBehindAppBar: true,
+      backgroundColor: Colors.transparent,
+      extendBody: true,
+
       body: AppBackground(
         child: SafeArea(
           child: Column(
@@ -71,7 +74,6 @@ class _GuidScreenState extends State<GuidScreen> {
                             fit: BoxFit.cover,
                           ),
                         ),
-                        SizedBox(height: mqSize.height*0.02),
 
                         Row(
                           mainAxisAlignment: MainAxisAlignment.center,
@@ -80,15 +82,15 @@ class _GuidScreenState extends State<GuidScreen> {
                                 (index) => _buildDot(index),
                           ),
                         ),
-                        SizedBox(height: mqSize.height*0.02),
+                        SizedBox(height: mqSize.height*0.01),
 
                         Padding(
-                          padding: EdgeInsets.symmetric(horizontal: mqSize.width*0.2),
+                          padding: EdgeInsets.symmetric(horizontal: mqSize.width*0.15),
                           child: Text(
                             _pages[index]['title']!,
                             textAlign: TextAlign.center,
                             style: TextStyle(
-                              fontSize: mqSize.width*0.08,
+                              fontSize: mqSize.width*0.09,
                               fontFamily: 'BernardMTCondensed',
                               fontWeight: FontWeight.w400,
                               color: Colors.white,
@@ -98,12 +100,12 @@ class _GuidScreenState extends State<GuidScreen> {
                         SizedBox(height: mqSize.height*0.01),
 
                         Padding(
-                          padding: EdgeInsets.symmetric(horizontal: mqSize.width*0.15),
+                          padding: EdgeInsets.symmetric(horizontal: mqSize.width*0.1),
                           child: Text(
                             _pages[index]['description']!,
                             textAlign: TextAlign.center,
                             style: TextStyle(
-                              fontSize: 16,
+                              fontSize: mqSize.width*0.04,
                               fontFamily: 'Benne',
                               fontWeight: FontWeight.w400,
                               color: Colors.grey.shade400,
@@ -157,7 +159,7 @@ class _GuidScreenState extends State<GuidScreen> {
                   ),
                 ),
               ),
-              SizedBox(height: mqSize.height*0.07,)
+              SizedBox(height: mqSize.height*0.03,)
 
             ],
           ),

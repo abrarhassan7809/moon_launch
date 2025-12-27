@@ -40,7 +40,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
                           'assets/images/moon_launch_logo.png',
                           width: mqSize.width*0.7,
                         ),
-                        SizedBox(height: mqSize.height*0.06,),
+                        SizedBox(height: mqSize.height*0.12,),
 
                         Padding(
                           padding: EdgeInsets.symmetric(horizontal: mqSize.width*0.08),
@@ -53,7 +53,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
                                 style: TextStyle(
                                   fontFamily: 'BernardMTCondensed',
                                   fontWeight: FontWeight.w400,
-                                  fontSize: mqSize.width*0.06,
+                                  fontSize: mqSize.width*0.08,
                                   color: Colors.white,
                                 ),
                               ),
@@ -73,7 +73,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
                                 style: TextStyle(
                                   fontFamily: 'Benne',
                                   fontWeight: FontWeight.w400,
-                                  fontSize: mqSize.width*0.035,
+                                  fontSize: mqSize.width*0.04,
                                   color: Colors.white,
                                 ),
                               ),
@@ -88,7 +88,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
                             decoration: InputDecoration(
                               hint: Text(
                                 "Username",
-                                style: TextStyle(fontFamily: 'Benne', fontSize: 14),
+                                style: TextStyle(fontFamily: 'Benne', fontSize: 15),
                               ),
                               border: OutlineInputBorder(
                                 borderRadius: BorderRadius.circular(mqSize.width*0.5),
@@ -108,7 +108,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
                             decoration: InputDecoration(
                               hint: Text(
                                 "Email Address",
-                                style: TextStyle(fontFamily: 'Benne', fontSize: 14),
+                                style: TextStyle(fontFamily: 'Benne', fontSize: 15),
                               ),
                               border: OutlineInputBorder(
                                 borderRadius: BorderRadius.circular(mqSize.width*0.5),
@@ -129,7 +129,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
                             decoration: InputDecoration(
                               hint: Text(
                                 "Password",
-                                style: TextStyle(fontFamily: 'Benne', fontSize: 14),
+                                style: TextStyle(fontFamily: 'Benne', fontSize: 15),
                               ),
                               border: OutlineInputBorder(
                                 borderRadius: BorderRadius.circular(mqSize.width*0.5),
@@ -161,7 +161,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
                             decoration: InputDecoration(
                               hint: Text(
                                 "Confirm Password",
-                                style: TextStyle(fontFamily: 'Benne', fontSize: 14),
+                                style: TextStyle(fontFamily: 'Benne', fontSize: 15),
                               ),
                               border: OutlineInputBorder(
                                 borderRadius: BorderRadius.circular(mqSize.width*0.5),
@@ -231,7 +231,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
                                     'I agree with all ',
                                     style: TextStyle(
                                       fontFamily: 'Benne',
-                                      fontSize: 10,
+                                      fontSize: mqSize.width*0.032,
                                       color: Colors.white,
                                     ),
                                   ),
@@ -258,7 +258,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
                                     'Terms & Conditions',
                                     style: TextStyle(
                                       fontFamily: 'Benne',
-                                      fontSize: 10,
+                                      fontSize: mqSize.width*0.032,
                                       color: Colors.white,
                                       decoration: TextDecoration.underline,
                                     ),
@@ -270,7 +270,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
                                 ' and ',
                                 style: TextStyle(
                                   fontFamily: 'Benne',
-                                  fontSize: 10,
+                                  fontSize: mqSize.width*0.032,
                                   color: Colors.white,
                                 ),
                               ),
@@ -295,7 +295,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
                                     'Privacy Policy',
                                     style: TextStyle(
                                       fontFamily: 'Benne',
-                                      fontSize: 10,
+                                      fontSize: mqSize.width*0.032,
                                       color: Colors.white,
                                       decoration: TextDecoration.underline,
                                     ),
@@ -309,11 +309,11 @@ class _RegisterScreenState extends State<RegisterScreen> {
                         SizedBox(height: mqSize.height*0.04,),
 
                         Padding(
-                          padding: EdgeInsets.symmetric(horizontal: mqSize.width*0.05),
+                          padding: EdgeInsets.symmetric(horizontal: mqSize.width*0.05,),
                           child: InkWell(
                             onTap: () {},
                             child: Container(
-                              height: mqSize.height*0.06,
+                              height: mqSize.height*0.07,
                               width: double.infinity,
                               decoration: BoxDecoration(
                                 gradient: LinearGradient(
@@ -333,14 +333,14 @@ class _RegisterScreenState extends State<RegisterScreen> {
                                     fontFamily: 'BernardMTCondensed',
                                     fontWeight: FontWeight.w400,
                                     color: Colors.white,
-                                    fontSize: 16,
+                                    fontSize: mqSize.width*0.06,
                                   ),
                                 ),
                               ),
                             ),
                           ),
                         ),
-                        SizedBox(height: mqSize.height*0.05,),
+                        SizedBox(height: mqSize.height*0.02,),
 
                         Row(
                           mainAxisAlignment: MainAxisAlignment.center,
@@ -351,7 +351,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
                                 fontFamily: 'BernardMTCondensed',
                                 fontWeight: FontWeight.w400,
                                 color: Colors.white,
-                                fontSize: 14,
+                                fontSize: 16,
                               ),
                             ),
 
@@ -373,7 +373,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
                                   style: TextStyle(
                                     fontFamily: 'Benne',
                                     fontWeight: FontWeight.w400,
-                                    fontSize: 14,
+                                    fontSize: 16,
                                     color: Colors.white,
                                     decoration: TextDecoration.underline,
                                   ),

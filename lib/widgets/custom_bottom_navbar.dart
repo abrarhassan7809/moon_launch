@@ -9,88 +9,91 @@ class CustomBottomNavBar extends StatelessWidget {
   Widget build(BuildContext context) {
     final Size mqSize = MediaQuery.of(context).size;
 
-    return SizedBox(
-      width: mqSize.width,
-      height: 90,
-      child: Stack(
-        clipBehavior: Clip.none,
-        children: [
-          // Custom Painted Background
-          CustomPaint(
-            size: Size(mqSize.width, 80),
-            painter: BNBCustomPainter(),
-          ),
-
-          // Center Button
-          Positioned(
-            top: -20,
-            left: mqSize.width / 2 - 35,
-            child: InkWell(
-              onTap: () {
-                Navigator.push(
-                  context,
-                  MaterialPageRoute(builder: (_) => ActivityScreen()),
-                );
-              },
-              child: Container(
-                height: 70,
-                width: 70,
-                decoration: BoxDecoration(
-                  gradient: const LinearGradient(
-                    colors: [Color(0xFFFFE600), Color(0xFFDB2519)],
-                  ),
-                  boxShadow: [
-                    BoxShadow(
-                      color: Color(0xFFFFE600).withOpacity(0.4),
-                      blurRadius: 12,
-                      spreadRadius: 5,
-                    ),
-                  ],
-                  borderRadius: BorderRadius.circular(50),
-                ),
-                child: const Icon(Icons.add, size: 28, color: Colors.white),
-              ),
+    return SafeArea(
+      child: SizedBox(
+        width: mqSize.width,
+        height: 90,
+        child: Stack(
+          clipBehavior: Clip.none,
+          children: [
+            // Custom Painted Background
+            CustomPaint(
+              size: Size(mqSize.width, 80),
+              painter: BNBCustomPainter(),
             ),
-          ),
 
-          // Bottom Icons
-          ValueListenableBuilder<int>(
-            valueListenable: selectedPageNotifier,
-            builder: (context, selectedIndex, _) {
-              return Positioned(
-                bottom: 20,
-                left: 0,
-                right: 0,
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                  children: [
-                    _navIcon(
-                      index: 0,
-                      selectedIndex: selectedIndex,
-                      iconPath: 'assets/images/home_icon.png',
+            // Center Button
+            Positioned(
+              top: -20,
+              left: mqSize.width / 2 - 35,
+              child: ValueListenableBuilder<int>(
+                valueListenable: selectedPageNotifier,
+                builder: (context, selectedIndex, _) {
+                  return Container(
+                    height: 70,
+                    width: 70,
+                    decoration: BoxDecoration(
+                      gradient: const LinearGradient(
+                        colors: [Color(0xFFFFE600), Color(0xFFDB2519)],
+                      ),
+                      boxShadow: [
+                        BoxShadow(
+                          color: Color(0xFFFFE600).withOpacity(0.4),
+                          blurRadius: 12,
+                          spreadRadius: 5,
+                        ),
+                      ],
+                      borderRadius: BorderRadius.circular(50),
                     ),
-                    _navIcon(
-                      index: 1,
-                      selectedIndex: selectedIndex,
-                      iconPath: 'assets/images/wallet_icon.png',
-                    ),
-                    SizedBox(width: mqSize.width*0.20),
-                    _navIcon(
+                    child: _navIcon(
                       index: 2,
                       selectedIndex: selectedIndex,
-                      iconPath: 'assets/images/ticket_icon.png',
+                      iconPath: 'assets/images/plus_icon.png',
                     ),
-                    _navIcon(
-                      index: 3,
-                      selectedIndex: selectedIndex,
-                      iconPath: 'assets/images/profile_icon.png',
-                    ),
-                  ],
-                ),
-              );
-            },
-          ),
-        ],
+                  );
+                },
+              ),
+            ),
+
+            // Bottom Icons
+            ValueListenableBuilder<int>(
+              valueListenable: selectedPageNotifier,
+              builder: (context, selectedIndex, _) {
+                return Positioned(
+                  bottom: 20,
+                  left: 0,
+                  right: 0,
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                    children: [
+                      _navIcon(
+                        index: 0,
+                        selectedIndex: selectedIndex,
+                        iconPath: 'assets/images/home_icon.png',
+                      ),
+                      _navIcon(
+                        index: 1,
+                        selectedIndex: selectedIndex,
+                        iconPath: 'assets/images/wallet_icon.png',
+                      ),
+                      SizedBox(width: mqSize.width*0.20),
+                      _navIcon(
+                        index: 3,
+                        selectedIndex: selectedIndex,
+                        iconPath: 'assets/images/ticket_icon.png',
+                      ),
+                      _navIcon(
+                        index: 4,
+                        selectedIndex: selectedIndex,
+                        iconPath: 'assets/images/profile_icon.png',
+                      ),
+                    ],
+                  ),
+                );
+              },
+            ),
+          ],
+        ),
       ),
     );
   }

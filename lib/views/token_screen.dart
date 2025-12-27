@@ -26,14 +26,14 @@ class TokenScreen extends StatelessWidget {
               style: TextStyle(
                 fontFamily: 'BernardMTCondensed',
                 fontWeight: FontWeight.w400,
-                fontSize: mqSize.width*0.06,
+                fontSize: mqSize.width*0.08,
                 color: Colors.white,
               ),
             ),
 
             Image.asset(
               'assets/images/moon_launch_logo.png',
-              width: mqSize.width*0.25,
+              width: mqSize.width*0.3,
             ),
           ],
         ),
@@ -53,13 +53,12 @@ class TokenScreen extends StatelessWidget {
                     child: Column(
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: [
-                        SizedBox(height: mqSize.height*0.03,),
                         Column(
                           spacing: 10,
                           children: [
                             Container(
-                              width: mqSize.height*0.19,
-                              height: mqSize.height*0.19,
+                              width: mqSize.height*0.15,
+                              height: mqSize.height*0.15,
                               decoration: BoxDecoration(
                                 gradient: const LinearGradient(
                                   colors: [
@@ -88,7 +87,7 @@ class TokenScreen extends StatelessWidget {
                               style: TextStyle(
                                 fontFamily: 'Benne',
                                 fontWeight: FontWeight.w400,
-                                fontSize: mqSize.width*0.042,
+                                fontSize: mqSize.width*0.045,
                                 color: Color(0xFFC9C9C9),
                               ),
                             ),
@@ -103,7 +102,7 @@ class TokenScreen extends StatelessWidget {
                             decoration: InputDecoration(
                               hint: Text(
                                 "Coin Name",
-                                style: TextStyle(fontFamily: 'Benne', fontSize: 14),
+                                style: TextStyle(fontFamily: 'Benne', fontSize: 15),
                               ),
                               border: OutlineInputBorder(
                                 borderRadius: BorderRadius.circular(mqSize.width*0.5),
@@ -123,7 +122,7 @@ class TokenScreen extends StatelessWidget {
                             decoration: InputDecoration(
                               hint: Text(
                                 "Symbol",
-                                style: TextStyle(fontFamily: 'Benne', fontSize: 14),
+                                style: TextStyle(fontFamily: 'Benne', fontSize: 15),
                               ),
                               border: OutlineInputBorder(
                                 borderRadius: BorderRadius.circular(mqSize.width*0.5),
@@ -147,7 +146,7 @@ class TokenScreen extends StatelessWidget {
                             decoration: InputDecoration(
                               hint: Text(
                                 "Description...",
-                                style: TextStyle(fontFamily: 'Benne', fontSize: 14),
+                                style: TextStyle(fontFamily: 'Benne', fontSize: 15),
                               ),
                               border: OutlineInputBorder(
                                 borderRadius: BorderRadius.circular(mqSize.width*0.08),
@@ -167,7 +166,7 @@ class TokenScreen extends StatelessWidget {
                             decoration: InputDecoration(
                               hint: Text(
                                 "Total Supply",
-                                style: TextStyle(fontFamily: 'Benne', fontSize: 14),
+                                style: TextStyle(fontFamily: 'Benne', fontSize: 15),
                               ),
                               border: OutlineInputBorder(
                                 borderRadius: BorderRadius.circular(mqSize.width*0.5),
@@ -187,7 +186,7 @@ class TokenScreen extends StatelessWidget {
                             decoration: InputDecoration(
                               hint: Text(
                                 "Starting Liquidity (BNB) - min 0.025",
-                                style: TextStyle(fontFamily: 'Benne', fontSize: 14),
+                                style: TextStyle(fontFamily: 'Benne', fontSize: 15),
                               ),
                               border: OutlineInputBorder(
                                 borderRadius: BorderRadius.circular(mqSize.width*0.5),
@@ -199,7 +198,7 @@ class TokenScreen extends StatelessWidget {
                             ),
                           ),
                         ),
-                        SizedBox(height: mqSize.height*0.03,),
+                        SizedBox(height: mqSize.height*0.02,),
 
                         Padding(
                           padding: EdgeInsets.symmetric(horizontal: mqSize.width*0.05),
@@ -211,7 +210,7 @@ class TokenScreen extends StatelessWidget {
                               );
                             },
                             child: Container(
-                              height: mqSize.height*0.06,
+                              height: mqSize.height*0.07,
                               width: double.infinity,
                               decoration: BoxDecoration(
                                 gradient: LinearGradient(
@@ -231,7 +230,7 @@ class TokenScreen extends StatelessWidget {
                                     fontFamily: 'BernardMTCondensed',
                                     fontWeight: FontWeight.w400,
                                     color: Colors.white,
-                                    fontSize: 16,
+                                    fontSize: mqSize.width*0.06,
                                   ),
                                 ),
                               ),

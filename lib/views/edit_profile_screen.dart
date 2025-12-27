@@ -1,6 +1,7 @@
 import 'dart:io';
 import 'package:flutter/material.dart';
 import 'package:image_picker/image_picker.dart';
+import 'package:moon_launch/widgets/image_selector.dart';
 import 'package:moon_launch/widgets/profile_background.dart';
 
 class EditProfileScreen extends StatefulWidget {
@@ -14,9 +15,9 @@ class _EditProfileScreenState extends State<EditProfileScreen> {
   File? _profileImage;
   final ImagePicker _picker = ImagePicker();
 
-  Future<void> _pickImage() async {
+  Future<void> _pickImage(ImageSource source) async {
     final XFile? pickedFile = await _picker.pickImage(
-      source: ImageSource.gallery,
+      source: source,
       imageQuality: 70,
     );
 
@@ -68,7 +69,7 @@ class _EditProfileScreenState extends State<EditProfileScreen> {
 
             Image.asset(
               'assets/images/moon_launch_logo.png',
-              width: mqSize.width*0.25,
+              width: mqSize.width*0.3,
             ),
           ],
         ),
@@ -88,7 +89,7 @@ class _EditProfileScreenState extends State<EditProfileScreen> {
                       style: TextStyle(
                         fontFamily: 'BernardMTCondensed',
                         fontWeight: FontWeight.w400,
-                        fontSize: mqSize.width*0.06,
+                        fontSize: mqSize.width*0.08,
                         color: Colors.white,
                       ),
                     ),
@@ -99,8 +100,8 @@ class _EditProfileScreenState extends State<EditProfileScreen> {
                 Stack(
                   children: [
                     Container(
-                      width: mqSize.height*0.165,
-                      height: mqSize.height*0.165,
+                      width: mqSize.height*0.16,
+                      height: mqSize.height*0.16,
                       decoration: BoxDecoration(
                         gradient: const LinearGradient(
                           colors: [
@@ -126,7 +127,7 @@ class _EditProfileScreenState extends State<EditProfileScreen> {
                               fit: BoxFit.cover,
                             )
                                 : Image.asset(
-                              'assets/images/profile_image.png',
+                              'assets/images/profile_image2.png',
                               fit: BoxFit.cover,
                             ),
                           ),
@@ -138,7 +139,14 @@ class _EditProfileScreenState extends State<EditProfileScreen> {
                       bottom: 0,
                       right: 10,
                       child: InkWell(
-                        onTap: _pickImage,
+                        onTap: () {
+                          ImageSelector.show(
+                            context: context,
+                            onImageSelected: (source) {
+                              _pickImage(source);
+                            },
+                          );
+                        },
                         child: Container(
                           height: 30,
                           width: 30,
@@ -169,7 +177,7 @@ class _EditProfileScreenState extends State<EditProfileScreen> {
                     decoration: InputDecoration(
                       hint: Text(
                         "Username",
-                        style: TextStyle(fontFamily: 'Benne', fontSize: 14),
+                        style: TextStyle(fontFamily: 'Benne', fontSize: 15),
                       ),
                       border: OutlineInputBorder(
                         borderRadius: BorderRadius.circular(mqSize.width*0.5),
@@ -189,7 +197,7 @@ class _EditProfileScreenState extends State<EditProfileScreen> {
                     decoration: InputDecoration(
                       hint: Text(
                         "Email Address",
-                        style: TextStyle(fontFamily: 'Benne', fontSize: 14),
+                        style: TextStyle(fontFamily: 'Benne', fontSize: 15),
                       ),
                       border: OutlineInputBorder(
                         borderRadius: BorderRadius.circular(mqSize.width*0.5),
@@ -208,7 +216,7 @@ class _EditProfileScreenState extends State<EditProfileScreen> {
                   child: Padding(
                     padding: EdgeInsets.symmetric(horizontal: mqSize.width*0.05),
                     child: Container(
-                      height: mqSize.height*0.06,
+                      height: mqSize.height*0.07,
                       width: double.infinity,
                       decoration: BoxDecoration(
                         gradient: LinearGradient(
@@ -225,11 +233,10 @@ class _EditProfileScreenState extends State<EditProfileScreen> {
                         child: Text(
                           'Update',
                           style: TextStyle(
-                            letterSpacing: -0.3,
                             fontFamily: 'BernardMTCondensed',
                             fontWeight: FontWeight.w400,
                             color: Colors.white,
-                            fontSize: 16,
+                            fontSize: mqSize.width*0.06,
                           ),
                         ),
                       ),

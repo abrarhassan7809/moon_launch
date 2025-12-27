@@ -39,7 +39,7 @@ class TermConditionScreen extends StatelessWidget {
 
             Image.asset(
               'assets/images/moon_launch_logo.png',
-              width: mqSize.width*0.25,
+              width: mqSize.width*0.3,
             ),
           ],
         ),
@@ -57,7 +57,7 @@ class TermConditionScreen extends StatelessWidget {
                   style: TextStyle(
                     fontFamily: 'BernardMTCondensed',
                     fontWeight: FontWeight.w400,
-                    fontSize: mqSize.width*0.06,
+                    fontSize: mqSize.width*0.08,
                     color: Colors.white,
                   ),
                 ),
@@ -92,7 +92,7 @@ Thank you for using Moon Launch.
                       style: TextStyle(
                         fontFamily: 'Benne',
                         fontWeight: FontWeight.w400,
-                        fontSize: mqSize.width*0.035,
+                        fontSize: mqSize.width*0.045,
                         color: Colors.white,
                         height: 1.6,
                       ),

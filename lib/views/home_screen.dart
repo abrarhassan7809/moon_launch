@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:moon_launch/views/activity_screen.dart';
-import 'package:moon_launch/views/reward_screen.dart';
 import 'package:moon_launch/widgets/profile_background.dart';
 
 class HomeScreen extends StatefulWidget {
@@ -26,7 +25,7 @@ class _HomeScreenState extends State<HomeScreen> {
 
         title: Image.asset(
           'assets/images/moon_launch_logo.png',
-          width: mqSize.width*0.25,
+          width: mqSize.width*0.3,
         ),
 
         actions: [
@@ -76,7 +75,7 @@ class _HomeScreenState extends State<HomeScreen> {
                             style: TextStyle(
                               fontFamily: 'BernardMTCondensed',
                               fontWeight: FontWeight.w400,
-                              fontSize: mqSize.width*0.035,
+                              fontSize: mqSize.width*0.04,
                               color: Colors.white,
                             ),
                           ),
@@ -110,8 +109,8 @@ class _HomeScreenState extends State<HomeScreen> {
                               borderRadius: BorderRadius.circular(50),
                             ),
                             padding: EdgeInsets.symmetric(
-                              horizontal: mqSize.width*0.07,
-                              vertical: mqSize.height*0.023,
+                              horizontal: mqSize.width*0.077,
+                              vertical: mqSize.height*0.018,
                             ),
                           ),
                           child: Row(
@@ -147,7 +146,7 @@ class _HomeScreenState extends State<HomeScreen> {
                         child: Container(
                           margin: EdgeInsets.all(2),
                           decoration: BoxDecoration(
-                            color: Colors.black,
+                            color: Colors.black.withOpacity(0.8),
                             borderRadius: BorderRadius.circular(50),
                           ),
                           child: OutlinedButton(
@@ -159,7 +158,7 @@ class _HomeScreenState extends State<HomeScreen> {
                               ),
                               padding: EdgeInsets.symmetric(
                                 horizontal: mqSize.width*0.062,
-                                vertical: mqSize.height*0.02,
+                                vertical: mqSize.height*0.015,
                               ),
                             ),
                             child: Row(
@@ -192,15 +191,10 @@ class _HomeScreenState extends State<HomeScreen> {
                       Column(
                         children: [
                           InkWell(
-                            onTap: () {
-                              Navigator.push(
-                                context,
-                                MaterialPageRoute(builder: (_) => RewardScreen()),
-                              );
-                            },
+                            onTap: () {},
                             child: Container(
-                              height: mqSize.height*0.095,
-                              width: mqSize.height*0.095,
+                              height: mqSize.height*0.085,
+                              width: mqSize.height*0.085,
                               decoration: BoxDecoration(
                                 color: Color(0xFF3F3228),
                                 borderRadius: BorderRadius.circular(50),
@@ -220,7 +214,7 @@ class _HomeScreenState extends State<HomeScreen> {
                             style: TextStyle(
                               fontFamily: 'Benne',
                               fontWeight: FontWeight.w400,
-                              fontSize: mqSize.width*0.035,
+                              fontSize: mqSize.width*0.04,
                               color: Color(0xFFC9C9C9),
                             ),
                           ),
@@ -231,8 +225,8 @@ class _HomeScreenState extends State<HomeScreen> {
                       Column(
                         children: [
                           Container(
-                            height: mqSize.height*0.095,
-                            width: mqSize.height*0.095,
+                            height: mqSize.height*0.085,
+                            width: mqSize.height*0.085,
                             decoration: BoxDecoration(
                               color: Color(0xFF3F3228),
                               borderRadius: BorderRadius.circular(50),
@@ -251,7 +245,7 @@ class _HomeScreenState extends State<HomeScreen> {
                             style: TextStyle(
                               fontFamily: 'Benne',
                               fontWeight: FontWeight.w400,
-                              fontSize: mqSize.width*0.035,
+                              fontSize: mqSize.width*0.04,
                               color: Color(0xFFC9C9C9),
                             ),
                           ),
@@ -272,7 +266,7 @@ class _HomeScreenState extends State<HomeScreen> {
                           style: TextStyle(
                             fontFamily: 'Benne',
                             fontWeight: FontWeight.w400,
-                            fontSize: mqSize.width*0.047,
+                            fontSize: mqSize.width*0.05,
                             color: Colors.white,
                           ),
                         ),
@@ -298,7 +292,7 @@ class _HomeScreenState extends State<HomeScreen> {
                               style: TextStyle(
                                 fontFamily: 'Benne',
                                 fontWeight: FontWeight.w400,
-                                fontSize: mqSize.width*0.047,
+                                fontSize: mqSize.width*0.05,
                                 color: Colors.white,
                               ),
                             ),

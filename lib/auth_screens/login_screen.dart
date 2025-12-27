@@ -40,7 +40,7 @@ class _LoginScreenState extends State<LoginScreen> {
                           'assets/images/moon_launch_logo.png',
                           width: mqSize.width*0.7,
                         ),
-                        SizedBox(height: mqSize.height*0.06,),
+                        SizedBox(height: mqSize.height*0.12,),
 
                         Padding(
                           padding: EdgeInsets.symmetric(horizontal: mqSize.width*0.08),
@@ -53,7 +53,7 @@ class _LoginScreenState extends State<LoginScreen> {
                                 style: TextStyle(
                                   fontFamily: 'BernardMTCondensed',
                                   fontWeight: FontWeight.w400,
-                                  fontSize: mqSize.width*0.06,
+                                  fontSize: mqSize.width*0.08,
                                   color: Colors.white,
                                 ),
                               ),
@@ -73,7 +73,7 @@ class _LoginScreenState extends State<LoginScreen> {
                                 style: TextStyle(
                                   fontFamily: 'Benne',
                                   fontWeight: FontWeight.w400,
-                                  fontSize: mqSize.width*0.035,
+                                  fontSize: mqSize.width*0.04,
                                   color: Colors.white,
                                 ),
                               ),
@@ -88,7 +88,7 @@ class _LoginScreenState extends State<LoginScreen> {
                             decoration: InputDecoration(
                               hint: Text(
                                 "Email Address",
-                                style: TextStyle(fontFamily: 'Benne', fontSize: 14),
+                                style: TextStyle(fontFamily: 'Benne', fontSize: 15),
                               ),
                               border: OutlineInputBorder(
                                 borderRadius: BorderRadius.circular(mqSize.width*0.5),
@@ -109,7 +109,7 @@ class _LoginScreenState extends State<LoginScreen> {
                             decoration: InputDecoration(
                               hint: Text(
                                 "Password",
-                                style: TextStyle(fontFamily: 'Benne', fontSize: 14),
+                                style: TextStyle(fontFamily: 'Benne', fontSize: 15),
                               ),
                               border: OutlineInputBorder(
                                 borderRadius: BorderRadius.circular(mqSize.width*0.5),
@@ -176,12 +176,15 @@ class _LoginScreenState extends State<LoginScreen> {
                                   ),
                                   SizedBox(width: mqSize.width*0.02),
 
-                                  Text(
-                                    'Remember me',
-                                    style: TextStyle(
-                                      fontFamily: 'Benne',
-                                      fontSize: 12,
-                                      color: Colors.white,
+                                  Padding(
+                                    padding: EdgeInsets.only(top: mqSize.height*0.006),
+                                    child: Text(
+                                      'Remember me',
+                                      style: TextStyle(
+                                        fontFamily: 'Benne',
+                                        fontSize: mqSize.width*0.04,
+                                        color: Colors.white,
+                                      ),
                                     ),
                                   ),
                                 ],
@@ -204,7 +207,7 @@ class _LoginScreenState extends State<LoginScreen> {
                                     'Forgot Password?',
                                     style: TextStyle(
                                       fontFamily: 'Benne',
-                                      fontSize: 12,
+                                      fontSize: mqSize.width*0.04,
                                       color: Colors.white,
                                       decoration: TextDecoration.underline,
                                     ),
@@ -226,7 +229,7 @@ class _LoginScreenState extends State<LoginScreen> {
                               );
                             },
                             child: Container(
-                              height: mqSize.height*0.06,
+                              height: mqSize.height*0.07,
                               width: double.infinity,
                               decoration: BoxDecoration(
                                 gradient: LinearGradient(
@@ -243,14 +246,14 @@ class _LoginScreenState extends State<LoginScreen> {
                                     fontFamily: 'BernardMTCondensed',
                                     fontWeight: FontWeight.w400,
                                     color: Colors.white,
-                                    fontSize: 16,
+                                    fontSize: mqSize.width*0.06,
                                   ),
                                 ),
                               ),
                             ),
                           ),
                         ),
-                        SizedBox(height: mqSize.height*0.15,),
+                        SizedBox(height: mqSize.height*0.06,),
 
                         Row(
                           mainAxisAlignment: MainAxisAlignment.center,
@@ -261,7 +264,7 @@ class _LoginScreenState extends State<LoginScreen> {
                                 fontFamily: 'BernardMTCondensed',
                                 fontWeight: FontWeight.w400,
                                 color: Colors.white,
-                                fontSize: 14,
+                                fontSize: 16,
                               ),
                             ),
 

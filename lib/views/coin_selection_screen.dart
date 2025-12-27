@@ -42,7 +42,7 @@ class CoinSelectionScreen extends StatelessWidget {
 
             Image.asset(
               'assets/images/moon_launch_logo.png',
-              width: mqSize.width*0.25,
+              width: mqSize.width*0.3,
             ),
           ],
         ),
@@ -63,14 +63,14 @@ class CoinSelectionScreen extends StatelessWidget {
                         fontFamily: 'BernardMTCondensed',
                         fontWeight: FontWeight.w400,
                         color: Colors.white,
-                        fontSize: mqSize.width*0.06,
+                        fontSize: mqSize.width*0.08,
                       ),
                     ),
 
                     Icon(
                       Icons.share,
                       color: Color(0xFFFFE600),
-                      size: mqSize.width*0.06,
+                      size: mqSize.width*0.07,
                     ),
                   ],
                 ),
@@ -86,8 +86,8 @@ class CoinSelectionScreen extends StatelessWidget {
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
                         Container(
-                          height: mqSize.height*0.109,
-                          width: mqSize.height*0.109,
+                          height: mqSize.height*0.09,
+                          width: mqSize.height*0.09,
                           decoration: BoxDecoration(
                             borderRadius: BorderRadius.circular(100),
                             border: Border.all(
@@ -99,8 +99,8 @@ class CoinSelectionScreen extends StatelessWidget {
                         ),
 
                         Container(
-                          height: mqSize.height*0.109,
-                          width: mqSize.height*0.109,
+                          height: mqSize.height*0.09,
+                          width: mqSize.height*0.09,
                           decoration: BoxDecoration(
                             borderRadius: BorderRadius.circular(100),
                             border: Border.all(
@@ -112,8 +112,8 @@ class CoinSelectionScreen extends StatelessWidget {
                         ),
 
                         Container(
-                          height: mqSize.height*0.109,
-                          width: mqSize.height*0.109,
+                          height: mqSize.height*0.09,
+                          width: mqSize.height*0.09,
                           decoration: BoxDecoration(
                             borderRadius: BorderRadius.circular(100),
                             border: Border.all(
@@ -125,8 +125,8 @@ class CoinSelectionScreen extends StatelessWidget {
                         ),
 
                         Container(
-                          height: mqSize.height*0.109,
-                          width: mqSize.height*0.109,
+                          height: mqSize.height*0.09,
+                          width: mqSize.height*0.09,
                           decoration: BoxDecoration(
                             borderRadius: BorderRadius.circular(100),
                             border: Border.all(
@@ -144,8 +144,8 @@ class CoinSelectionScreen extends StatelessWidget {
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
                         Container(
-                          height: mqSize.height*0.109,
-                          width: mqSize.height*0.109,
+                          height: mqSize.height*0.09,
+                          width: mqSize.height*0.09,
                           decoration: BoxDecoration(
                             borderRadius: BorderRadius.circular(100),
                             border: Border.all(
@@ -157,8 +157,8 @@ class CoinSelectionScreen extends StatelessWidget {
                         ),
 
                         Container(
-                          height: mqSize.height*0.109,
-                          width: mqSize.height*0.109,
+                          height: mqSize.height*0.09,
+                          width: mqSize.height*0.09,
                           decoration: BoxDecoration(
                             borderRadius: BorderRadius.circular(100),
                             border: Border.all(
@@ -170,8 +170,8 @@ class CoinSelectionScreen extends StatelessWidget {
                         ),
 
                         Container(
-                          height: mqSize.height*0.109,
-                          width: mqSize.height*0.109,
+                          height: mqSize.height*0.09,
+                          width: mqSize.height*0.09,
                           decoration: BoxDecoration(
                             borderRadius: BorderRadius.circular(100),
                             border: Border.all(
@@ -183,8 +183,8 @@ class CoinSelectionScreen extends StatelessWidget {
                         ),
 
                         Container(
-                          height: mqSize.height*0.109,
-                          width: mqSize.height*0.109,
+                          height: mqSize.height*0.09,
+                          width: mqSize.height*0.09,
                           decoration: BoxDecoration(
                             borderRadius: BorderRadius.circular(100),
                             border: Border.all(
@@ -202,8 +202,8 @@ class CoinSelectionScreen extends StatelessWidget {
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
                         Container(
-                          height: mqSize.height*0.109,
-                          width: mqSize.height*0.109,
+                          height: mqSize.height*0.09,
+                          width: mqSize.height*0.09,
                           decoration: BoxDecoration(
                             borderRadius: BorderRadius.circular(100),
                             border: Border.all(
@@ -215,8 +215,8 @@ class CoinSelectionScreen extends StatelessWidget {
                         ),
 
                         Container(
-                          height: mqSize.height*0.109,
-                          width: mqSize.height*0.109,
+                          height: mqSize.height*0.09,
+                          width: mqSize.height*0.09,
                           decoration: BoxDecoration(
                             borderRadius: BorderRadius.circular(100),
                             border: Border.all(
@@ -228,8 +228,8 @@ class CoinSelectionScreen extends StatelessWidget {
                         ),
 
                         Container(
-                          height: mqSize.height*0.109,
-                          width: mqSize.height*0.109,
+                          height: mqSize.height*0.09,
+                          width: mqSize.height*0.09,
                           decoration: BoxDecoration(
                             borderRadius: BorderRadius.circular(100),
                             border: Border.all(
@@ -241,8 +241,8 @@ class CoinSelectionScreen extends StatelessWidget {
                         ),
 
                         Container(
-                          height: mqSize.height*0.109,
-                          width: mqSize.height*0.109,
+                          height: mqSize.height*0.09,
+                          width: mqSize.height*0.09,
                           decoration: BoxDecoration(
                             borderRadius: BorderRadius.circular(100),
                             border: Border.all(
@@ -260,8 +260,8 @@ class CoinSelectionScreen extends StatelessWidget {
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
                         Container(
-                          height: mqSize.height*0.109,
-                          width: mqSize.height*0.109,
+                          height: mqSize.height*0.09,
+                          width: mqSize.height*0.09,
                           decoration: BoxDecoration(
                             borderRadius: BorderRadius.circular(100),
                             border: Border.all(
@@ -273,8 +273,8 @@ class CoinSelectionScreen extends StatelessWidget {
                         ),
 
                         Container(
-                          height: mqSize.height*0.109,
-                          width: mqSize.height*0.109,
+                          height: mqSize.height*0.09,
+                          width: mqSize.height*0.09,
                           decoration: BoxDecoration(
                             borderRadius: BorderRadius.circular(100),
                             border: Border.all(
@@ -286,8 +286,8 @@ class CoinSelectionScreen extends StatelessWidget {
                         ),
 
                         Container(
-                          height: mqSize.height*0.109,
-                          width: mqSize.height*0.109,
+                          height: mqSize.height*0.09,
+                          width: mqSize.height*0.09,
                           decoration: BoxDecoration(
                             borderRadius: BorderRadius.circular(100),
                             border: Border.all(
@@ -299,8 +299,8 @@ class CoinSelectionScreen extends StatelessWidget {
                         ),
 
                         Container(
-                          height: mqSize.height*0.109,
-                          width: mqSize.height*0.109,
+                          height: mqSize.height*0.09,
+                          width: mqSize.height*0.09,
                           decoration: BoxDecoration(
                             borderRadius: BorderRadius.circular(100),
                             border: Border.all(
@@ -318,8 +318,8 @@ class CoinSelectionScreen extends StatelessWidget {
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
                         Container(
-                          height: mqSize.height*0.109,
-                          width: mqSize.height*0.109,
+                          height: mqSize.height*0.09,
+                          width: mqSize.height*0.09,
                           decoration: BoxDecoration(
                             borderRadius: BorderRadius.circular(100),
                             border: Border.all(
@@ -331,8 +331,8 @@ class CoinSelectionScreen extends StatelessWidget {
                         ),
 
                         Container(
-                          height: mqSize.height*0.109,
-                          width: mqSize.height*0.109,
+                          height: mqSize.height*0.09,
+                          width: mqSize.height*0.09,
                           decoration: BoxDecoration(
                             borderRadius: BorderRadius.circular(100),
                             border: Border.all(
@@ -344,8 +344,8 @@ class CoinSelectionScreen extends StatelessWidget {
                         ),
 
                         Container(
-                          height: mqSize.height*0.109,
-                          width: mqSize.height*0.109,
+                          height: mqSize.height*0.09,
+                          width: mqSize.height*0.09,
                           decoration: BoxDecoration(
                             borderRadius: BorderRadius.circular(100),
                             border: Border.all(
@@ -357,8 +357,8 @@ class CoinSelectionScreen extends StatelessWidget {
                         ),
 
                         Container(
-                          height: mqSize.height*0.109,
-                          width: mqSize.height*0.109,
+                          height: mqSize.height*0.09,
+                          width: mqSize.height*0.09,
                           decoration: BoxDecoration(
                             borderRadius: BorderRadius.circular(100),
                             border: Border.all(
@@ -381,7 +381,7 @@ class CoinSelectionScreen extends StatelessWidget {
                 child: InkWell(
                   onTap: () {},
                   child: Container(
-                    height: mqSize.height*0.06,
+                    height: mqSize.height*0.07,
                     width: double.infinity,
                     decoration: BoxDecoration(
                       gradient: LinearGradient(
@@ -398,11 +398,10 @@ class CoinSelectionScreen extends StatelessWidget {
                       child: Text(
                         'Select',
                         style: TextStyle(
-                          letterSpacing: -0.3,
                           fontFamily: 'BernardMTCondensed',
                           fontWeight: FontWeight.w400,
                           color: Colors.white,
-                          fontSize: 18,
+                          fontSize: mqSize.width*0.06,
                         ),
                       ),
                     ),

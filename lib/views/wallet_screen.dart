@@ -48,7 +48,7 @@ class _WalletScreenState extends State<WalletScreen> {
 
               Image.asset(
                 'assets/images/moon_launch_logo.png',
-                width: mqSize.width*0.25,
+                width: mqSize.width*0.3,
               ),
             ],
           ),
@@ -119,12 +119,12 @@ class _WalletScreenState extends State<WalletScreen> {
                   ),
                 ],
               ),
-              SizedBox(height: mqSize.height*0.03,),
+              SizedBox(height: mqSize.height*0.01,),
 
               // real time chart
               SizedBox(
                 width: mqSize.width*0.9,
-                height: 160,
+                height: mqSize.height*0.23,
                 child: InteractiveViewer(
                   boundaryMargin: const EdgeInsets.all(100),
                   minScale: 1,
@@ -134,7 +134,7 @@ class _WalletScreenState extends State<WalletScreen> {
                   child: WalletChart(),
                 ),
               ),
-              SizedBox(height: mqSize.height*0.04,),
+              SizedBox(height: mqSize.height*0.02,),
 
               // deposit buttons
               Row(
@@ -143,8 +143,8 @@ class _WalletScreenState extends State<WalletScreen> {
                   Column(
                     children: [
                       Container(
-                        height: mqSize.height*0.095,
-                        width: mqSize.height*0.095,
+                        height: mqSize.height*0.085,
+                        width: mqSize.height*0.085,
                         decoration: BoxDecoration(
                           color: Color(0xFF3F3228),
                           borderRadius: BorderRadius.circular(50),
@@ -158,19 +158,19 @@ class _WalletScreenState extends State<WalletScreen> {
                         style: TextStyle(
                           fontFamily: 'Benne',
                           fontWeight: FontWeight.w400,
-                          fontSize: mqSize.width*0.035,
+                          fontSize: mqSize.width*0.04,
                           color: Color(0xFFC9C9C9),
                         ),
                       ),
                     ],
                   ),
-                  SizedBox(width: mqSize.width*0.05,),
+                  SizedBox(width: mqSize.width*0.04,),
 
                   Column(
                     children: [
                       Container(
-                        height: mqSize.height*0.095,
-                        width: mqSize.height*0.095,
+                        height: mqSize.height*0.085,
+                        width: mqSize.height*0.085,
                         decoration: BoxDecoration(
                           color: Color(0xFF3F3228),
                           borderRadius: BorderRadius.circular(50),
@@ -189,19 +189,19 @@ class _WalletScreenState extends State<WalletScreen> {
                         style: TextStyle(
                           fontFamily: 'Benne',
                           fontWeight: FontWeight.w400,
-                          fontSize: mqSize.width*0.035,
+                          fontSize: mqSize.width*0.04,
                           color: Color(0xFFC9C9C9),
                         ),
                       ),
                     ],
                   ),
-                  SizedBox(width: mqSize.width*0.05,),
+                  SizedBox(width: mqSize.width*0.04,),
 
                   Column(
                     children: [
                       Container(
-                        height: mqSize.height*0.095,
-                        width: mqSize.height*0.095,
+                        height: mqSize.height*0.085,
+                        width: mqSize.height*0.085,
                         decoration: BoxDecoration(
                           color: Color(0xFF3F3228),
                           borderRadius: BorderRadius.circular(50),
@@ -215,19 +215,19 @@ class _WalletScreenState extends State<WalletScreen> {
                         style: TextStyle(
                           fontFamily: 'Benne',
                           fontWeight: FontWeight.w400,
-                          fontSize: mqSize.width*0.035,
+                          fontSize: mqSize.width*0.04,
                           color: Color(0xFFC9C9C9),
                         ),
                       ),
                     ],
                   ),
-                  SizedBox(width: mqSize.width*0.05,),
+                  SizedBox(width: mqSize.width*0.04,),
 
                   Column(
                     children: [
                       Container(
-                        height: mqSize.height*0.095,
-                        width: mqSize.height*0.095,
+                        height: mqSize.height*0.085,
+                        width: mqSize.height*0.085,
                         decoration: BoxDecoration(
                           color: Color(0xFF3F3228),
                           borderRadius: BorderRadius.circular(50),
@@ -241,7 +241,7 @@ class _WalletScreenState extends State<WalletScreen> {
                         style: TextStyle(
                           fontFamily: 'Benne',
                           fontWeight: FontWeight.w400,
-                          fontSize: mqSize.width*0.035,
+                          fontSize: mqSize.width*0.04,
                           color: Color(0xFFC9C9C9),
                         ),
                       ),
@@ -249,7 +249,7 @@ class _WalletScreenState extends State<WalletScreen> {
                   ),
                 ],
               ),
-              SizedBox(height: mqSize.height*0.03,),
+              SizedBox(height: mqSize.height*0.02,),
 
               Padding(
                 padding: EdgeInsets.symmetric(horizontal: 20),
@@ -260,7 +260,7 @@ class _WalletScreenState extends State<WalletScreen> {
                       style: TextStyle(
                         fontFamily: 'Benne',
                         fontWeight: FontWeight.w400,
-                        fontSize: mqSize.width*0.047,
+                        fontSize: mqSize.width*0.05,
                         color: Colors.white,
                       ),
                     ),
